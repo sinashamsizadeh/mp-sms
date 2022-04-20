@@ -149,24 +149,24 @@ if ( ! class_exists( 'AweCodBoxMP\SMS' ) ) {
 		public function load_dependencies() {
 
 			/**
-			 * Melipayamak
-			 */
-			require self::$dir . '/vendor/autoload.php';
-
-			/**
 			 * Admin
 			 */
-			require self::$dir . '/classes/admin.php';
+			require self::$dir . '/classes/Admin.php';
 
 			/**
 			 * Enqueue
 			 */
-			require self::$dir . '/classes/enqueue.php';
+			require self::$dir . '/classes/Enqueue.php';
 
 			/**
 			 * Ajax
 			 */
-			require self::$dir . '/classes/ajax.php';
+			require self::$dir . '/classes/Ajax.php';
+
+			/**
+			 * Ajax
+			 */
+			require self::$dir . '/classes/API.php';
 
 		}
 		

@@ -58,8 +58,8 @@ if ( ! class_exists( 'AweCodBoxMP\Ajax' ) ) {
 		 * @access private
 		 */
 		private function hooks() {
-            // add_action( 'init', [$this, 'send'] );
 
+            // add_action( 'wp_ajax_mp_sms_auth', [$this, 'mp_sms_auth'] );
 		}
 
 		/**
@@ -68,23 +68,24 @@ if ( ! class_exists( 'AweCodBoxMP\Ajax' ) ) {
 		 * @since  1.0.0
 		 * @access public
 		 */
-		public function send() {
+		public function mp_sms_auth() {
+			
+			$username	= '09121761087';
+			$password	= 'Mamad@123';
+			$bodyId		= '61237';
+			$text		= 'سلام این تست میباشد';
+			// $api		= new \MelipayamakApi($username,$password);
+			// $smsRest	= $api->sms();
+			// $to			= '09355012489';
+			// $response = $smsRest->sendByBaseNumber($text, $to, $bodyId);
 
-			try {
-				$username = '09121761087';
-				$password = 'Mamad@123';
-				$api = new MelipayamakApi( $username,$password );
-				$sms = $api->sms();
-				$to = '09355012489';
-				$from = '50004001761087';
-				$text = 'تست وب سرویس ملی پیامک';
-				$response = $sms->send( $to,$from,$text );
-				$json = json_decode( $response );
-				echo $json->Value; //RecId or Error Number 
-			} catch( Exception $e ) {
+			// $api			= new \MelipayamakApi( $username, $password );
+			// $black_list	= $api->SharedService();
+			// $result		= $black_list->getSharedServiceBody();
 
-				echo $e->getMessage();
-			}
+			var_dump($bodyId);
+
+			wp_die();
 		}
 
 		/**

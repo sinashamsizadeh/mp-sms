@@ -1,0 +1,25 @@
+{
+	"name": "mp-sms",
+	"version": "1.0.0",
+	"description": "Melipayamk",
+	"main": "index.js",
+	"scripts": {
+		"start": "wp-scripts start",
+		"build": "wp-scripts build",
+		"start:hot": "wp-scripts start --hot"
+	},
+	"keywords": [
+		"Melipayamk",
+		"SMS"
+	],
+	"author": "AweCodebox",
+	"license": "ISC",
+	"devDependencies": {
+		"@wordpress/i18n": "^4.6.0",
+		"@wordpress/scripts": "^22.4.0"
+	},
+	"dependencies": {
+		"antd": "^4.19.5",
+		"axios": "^0.26.1"
+	}
+}

@@ -93,3 +93,4 @@ rector.php
 yarn.lock
 assets/dist
 .vscode
+/admin/build

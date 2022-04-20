@@ -48,6 +48,7 @@ if ( ! class_exists( 'MPAdmin\Admin' ) ) {
 		 */
 		private function __construct() {
 
+			$this->CreateOption();
 			$this->hooks();
 		}
 	
@@ -60,6 +61,26 @@ if ( ! class_exists( 'MPAdmin\Admin' ) ) {
 		private function hooks() {
 
             add_action( 'admin_menu', [$this, 'regist_page'] );
+		}
+
+		/**
+		 * Setup Create Meli Payamak Option.
+		 *
+		 * @since  1.0.0
+		 * @access private
+		 */
+		private function CreateOption() {
+			
+			if ( ! get_option( SMS::$id ) ) {
+
+				$options = json_encode ( [
+					'username' => '',
+					'password' => '',
+					'patterns' => [],
+				], true );
+
+				update_option( SMS::$id, $options );
+			}
 		}
 	
 		/**
@@ -80,15 +101,6 @@ if ( ! class_exists( 'MPAdmin\Admin' ) ) {
 				90
 			);
 
-			add_submenu_page(
-				SMS::$slug,
-				__( 'Settings', SMS::$slug ),
-				__( 'Settings', SMS::$slug ),
-				'manage_options',
-				SMS::$slug . '-settings',
-				[ $this, 'settings' ],
-			);
-
 		}
 	
 		/**
@@ -99,20 +111,19 @@ if ( ! class_exists( 'MPAdmin\Admin' ) ) {
 		 */
 		public function page() {
 
-			echo 'wp_sms';
+			echo '<div id="mp-sms-wrap"></div>';
 		}
-	
+
 		/**
-		 * wp_sms_settings Page.
+		 * Send sms.
 		 *
 		 * @since  1.0.0
 		 * @access public
 		 */
-		public function settings() {
+		public function GetOptions() {
 
-			echo 'settings';
+			return json_decode( get_option( SMS::$id ), true );
 		}
-
 
 	}
 
