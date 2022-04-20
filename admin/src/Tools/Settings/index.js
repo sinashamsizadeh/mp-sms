@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { Form, Input, Button, message } from 'antd';
-import { Row, Col } from 'antd';
+import {Form, Input, Button, message, Row, Col } from 'antd';
 import { UserOutlined, LockOutlined, LoadingOutlined  } from '@ant-design/icons';
 import { __ } from '@wordpress/i18n';
 
@@ -41,8 +40,7 @@ const Settings = () => {
 			setOptions({
 				loading: false
 			});
-
-		})
+		});
 
 	};
 

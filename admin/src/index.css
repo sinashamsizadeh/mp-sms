@@ -1,1 +1,10 @@
 @import 'antd/dist/antd.css';
+
+#wpcontent {
+    background: #e7e7e7;
+}
+
+#mp-sms-wrap {
+    margin-top: 20px;
+    margin-right: 20px;
+}

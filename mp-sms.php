@@ -148,6 +148,8 @@ if ( ! class_exists( 'AweCodBoxMP\SMS' ) ) {
 		 */
 		public function load_dependencies() {
 
+			require self::$dir . '/vendor/autoload.php';
+
 			/**
 			 * Admin
 			 */

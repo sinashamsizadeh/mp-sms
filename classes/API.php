@@ -70,12 +70,12 @@ if ( ! class_exists( 'AweCodBoxMP\MP\API' ) ) {
 		private static $auth;
 		
 		/**
-		 * auth.
+		 * credits.
 		 *
 		 * @since   1.0.0
 		 * @access  private
 		 */
-		private static $send;
+		private static $credits;
 	
 		/**
 		 * mb_namespace of this cwb routes.
@@ -134,7 +134,7 @@ if ( ! class_exists( 'AweCodBoxMP\MP\API' ) ) {
 			
 			self::$mb_namespace	= SMS::$slug . '/v2';
 			self::$auth			= 'auth';
-			self::$send			= 'send';
+			self::$credits		= 'credits';
 			self::$options		= $this->GetOptions();
 			self::$username		= isset ( self::$options['username'] ) ? self::$options['username'] : '';
 			self::$password		= isset ( self::$options['password'] ) ? self::$options['password'] : '';
@@ -193,9 +193,9 @@ if ( ! class_exists( 'AweCodBoxMP\MP\API' ) ) {
 				'permission_callback'	=> [$this, 'update_item_permissions_check'],
 			] );
 
-			register_rest_route( self::$mb_namespace , '/' . self::$send , [
+			register_rest_route( self::$mb_namespace , '/' . self::$credits , [
 				'methods'				=> \WP_REST_Server::EDITABLE,
-				'callback'				=> [$this, 'Sned'],
+				'callback'				=> [$this, 'Credits'],
 				'permission_callback'	=> [$this, 'update_item_permissions_check'],
 			] );
 
@@ -320,6 +320,163 @@ if ( ! class_exists( 'AweCodBoxMP\MP\API' ) ) {
 				'message'	=> __( 'Something went wrong, Please try again', SMS::$slug ),
 				'code'		=> 403,
 			];
+		}
+
+		/**
+		 * Credits.
+		 *
+		 * @since  1.0.0
+		 * @access public
+		 */
+		public function Credits( $params ) {
+
+			if ( ! isset( self::$options['username'] ) && ! isset( self::$options['password'] ) ) {
+
+				return __( 'Access denied.', SMS::$slug );
+			}
+
+			$credits = $this->GetCredits();
+			
+			if ( isset( $credits ) ) {
+				
+				return [
+					'message'	=> [
+						'credits'		=> round( $credits['Value'] ),
+						'mtncredits'	=> $this->GetIrancellPrice()['Value'],
+						'mcicredits'	=> $this->GetHamraheAvalPrice()['Value'],
+					],
+					'code'		=> 200,
+				];
+
+			} else {
+
+				return [
+					'message'	=> __( 'Failed to contact Meli Payamak, Please make sure username and password are correct', SMS::$slug ),
+					'code'		=> 403,
+				];
+			}
+			
+			return [
+				'message'	=> __( 'Something went wrong, Please try again', SMS::$slug ),
+				'code'		=> 403,
+			];
+		}
+
+		/**
+		 * GET Hamrahe Aval SMS Price.
+		 *
+		 * @since  1.0.0
+		 * @access public
+		 */
+		public function GetHamraheAvalPrice() {
+
+			$data = [
+				'username'		=> self::$options['username'],
+				'password'		=> self::$options['password'],
+				'irancellCount'	=> '0',
+				'mtnCount'		=> '1',
+				'from'			=> $this->GetNumbers()[0],
+				'text'			=> 'شششششش'
+			];
+
+			$post_data	= http_build_query( $data );
+			$handle		= curl_init( 'https://rest.payamak-panel.com/api/SendSMS/GetBasePrice' );
+			
+			curl_setopt( $handle, CURLOPT_HTTPHEADER, [
+				'content-type' => 'application/x-www-form-urlencoded'
+			] );
+			
+			curl_setopt( $handle, CURLOPT_RETURNTRANSFER, true );
+			curl_setopt( $handle, CURLOPT_SSL_VERIFYHOST, false );
+			curl_setopt( $handle, CURLOPT_SSL_VERIFYPEER, false );
+			curl_setopt( $handle, CURLOPT_POST, true );
+			curl_setopt( $handle, CURLOPT_POSTFIELDS, $post_data );
+
+			$response = curl_exec( $handle );
+
+			return json_decode( $response, true );
+
+		}
+		
+		/**
+		 * GET MTN Irancell SMS Price.
+		 *
+		 * @since  1.0.0
+		 * @access public
+		 */
+		public function GetIrancellPrice() {
+
+			$data = [
+				'username'		=> self::$options['username'],
+				'password'		=> self::$options['password'],
+				'irancellCount'	=> '1',
+				'mtnCount'		=> '0',
+				'from'			=> $this->GetNumbers()[0],
+				'text'			=> 'شششششش'
+			];
+
+			$post_data	= http_build_query( $data );
+			$handle		= curl_init( 'https://rest.payamak-panel.com/api/SendSMS/GetBasePrice' );
+			
+			curl_setopt( $handle, CURLOPT_HTTPHEADER, [
+				'content-type' => 'application/x-www-form-urlencoded'
+			] );
+			
+			curl_setopt( $handle, CURLOPT_RETURNTRANSFER, true );
+			curl_setopt( $handle, CURLOPT_SSL_VERIFYHOST, false );
+			curl_setopt( $handle, CURLOPT_SSL_VERIFYPEER, false );
+			curl_setopt( $handle, CURLOPT_POST, true );
+			curl_setopt( $handle, CURLOPT_POSTFIELDS, $post_data );
+
+			$response = curl_exec( $handle );
+
+			return json_decode( $response, true );
+
+		}
+
+		/**
+		 * Get Numbers.
+		 *
+		 * @since  1.0.0
+		 * @access public
+		 */
+		public function GetNumbers() {
+
+			$api = new MelipayamakApi( self::$options['username'], self::$options['password'] );
+			$sms = $api->sms();
+			$result = json_decode( $sms->getNumbers(), true );
+
+			return $result['Data'];
+		}
+
+		/**
+		 * Get Numbers.
+		 *
+		 * @since  1.0.0
+		 * @access public
+		 */
+		public function GetCredits() {
+
+			$data = [
+				'username' => self::$options['username'],
+				'password' => self::$options['password']
+			];
+
+			$post_data	= http_build_query( $data );
+			$handle		= curl_init( 'https://rest.payamak-panel.com/api/SendSMS/GetCredit' );
+
+			curl_setopt( $handle, CURLOPT_HTTPHEADER, [
+				'content-type' => 'application/x-www-form-urlencoded'
+			]);
+
+			curl_setopt( $handle, CURLOPT_RETURNTRANSFER, true );
+			curl_setopt( $handle, CURLOPT_SSL_VERIFYHOST, false );
+			curl_setopt( $handle, CURLOPT_SSL_VERIFYPEER, false );
+			curl_setopt( $handle, CURLOPT_POST, true );
+			curl_setopt( $handle, CURLOPT_POSTFIELDS, $post_data );
+			$response = curl_exec( $handle );
+
+			return json_decode( $response, true );
 		}
 
 		/**
