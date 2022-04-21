@@ -330,7 +330,7 @@ if ( ! class_exists( 'AweCodBoxMP\MP\API' ) ) {
 		 */
 		public function Credits( $params ) {
 
-			if ( ! isset( self::$options['username'] ) && ! isset( self::$options['password'] ) ) {
+			if ( empty( self::$options['username'] ) && empty( self::$options['password'] ) ) {
 
 				return __( 'Access denied.', SMS::$slug );
 			}
@@ -370,32 +370,36 @@ if ( ! class_exists( 'AweCodBoxMP\MP\API' ) ) {
 		 */
 		public function GetHamraheAvalPrice() {
 
-			$data = [
-				'username'		=> self::$options['username'],
-				'password'		=> self::$options['password'],
-				'irancellCount'	=> '0',
-				'mtnCount'		=> '1',
-				'from'			=> $this->GetNumbers()[0],
-				'text'			=> 'شششششش'
-			];
+			if ( self::$options['username'] && self::$options['password'] ) {
 
-			$post_data	= http_build_query( $data );
-			$handle		= curl_init( 'https://rest.payamak-panel.com/api/SendSMS/GetBasePrice' );
+				$data = [
+					'username'		=> self::$options['username'],
+					'password'		=> self::$options['password'],
+					'irancellCount'	=> '0',
+					'mtnCount'		=> '1',
+					'from'			=> $this->GetNumbers()[0],
+					'text'			=> 'شششششش'
+				];
+	
+				$post_data	= http_build_query( $data );
+				$handle		= curl_init( 'https://rest.payamak-panel.com/api/SendSMS/GetBasePrice' );
+				
+				curl_setopt( $handle, CURLOPT_HTTPHEADER, [
+					'content-type' => 'application/x-www-form-urlencoded'
+				] );
+				
+				curl_setopt( $handle, CURLOPT_RETURNTRANSFER, true );
+				curl_setopt( $handle, CURLOPT_SSL_VERIFYHOST, false );
+				curl_setopt( $handle, CURLOPT_SSL_VERIFYPEER, false );
+				curl_setopt( $handle, CURLOPT_POST, true );
+				curl_setopt( $handle, CURLOPT_POSTFIELDS, $post_data );
+	
+				$response = curl_exec( $handle );
+	
+				return json_decode( $response, true );
+			}
 			
-			curl_setopt( $handle, CURLOPT_HTTPHEADER, [
-				'content-type' => 'application/x-www-form-urlencoded'
-			] );
-			
-			curl_setopt( $handle, CURLOPT_RETURNTRANSFER, true );
-			curl_setopt( $handle, CURLOPT_SSL_VERIFYHOST, false );
-			curl_setopt( $handle, CURLOPT_SSL_VERIFYPEER, false );
-			curl_setopt( $handle, CURLOPT_POST, true );
-			curl_setopt( $handle, CURLOPT_POSTFIELDS, $post_data );
-
-			$response = curl_exec( $handle );
-
-			return json_decode( $response, true );
-
+			return false;
 		}
 		
 		/**
@@ -406,32 +410,37 @@ if ( ! class_exists( 'AweCodBoxMP\MP\API' ) ) {
 		 */
 		public function GetIrancellPrice() {
 
-			$data = [
-				'username'		=> self::$options['username'],
-				'password'		=> self::$options['password'],
-				'irancellCount'	=> '1',
-				'mtnCount'		=> '0',
-				'from'			=> $this->GetNumbers()[0],
-				'text'			=> 'شششششش'
-			];
+			if ( self::$options['username'] && self::$options['password'] ) {
 
-			$post_data	= http_build_query( $data );
-			$handle		= curl_init( 'https://rest.payamak-panel.com/api/SendSMS/GetBasePrice' );
+				$data = [
+					'username'		=> self::$options['username'],
+					'password'		=> self::$options['password'],
+					'irancellCount'	=> '1',
+					'mtnCount'		=> '0',
+					'from'			=> $this->GetNumbers()[0],
+					'text'			=> 'شششششش'
+				];
+	
+				$post_data	= http_build_query( $data );
+				$handle		= curl_init( 'https://rest.payamak-panel.com/api/SendSMS/GetBasePrice' );
+				
+				curl_setopt( $handle, CURLOPT_HTTPHEADER, [
+					'content-type' => 'application/x-www-form-urlencoded'
+				] );
+				
+				curl_setopt( $handle, CURLOPT_RETURNTRANSFER, true );
+				curl_setopt( $handle, CURLOPT_SSL_VERIFYHOST, false );
+				curl_setopt( $handle, CURLOPT_SSL_VERIFYPEER, false );
+				curl_setopt( $handle, CURLOPT_POST, true );
+				curl_setopt( $handle, CURLOPT_POSTFIELDS, $post_data );
+	
+				$response = curl_exec( $handle );
+	
+	
+				return json_decode( $response, true );
+			}
 			
-			curl_setopt( $handle, CURLOPT_HTTPHEADER, [
-				'content-type' => 'application/x-www-form-urlencoded'
-			] );
-			
-			curl_setopt( $handle, CURLOPT_RETURNTRANSFER, true );
-			curl_setopt( $handle, CURLOPT_SSL_VERIFYHOST, false );
-			curl_setopt( $handle, CURLOPT_SSL_VERIFYPEER, false );
-			curl_setopt( $handle, CURLOPT_POST, true );
-			curl_setopt( $handle, CURLOPT_POSTFIELDS, $post_data );
-
-			$response = curl_exec( $handle );
-
-			return json_decode( $response, true );
-
+			return false;
 		}
 
 		/**

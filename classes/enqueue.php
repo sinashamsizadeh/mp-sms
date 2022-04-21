@@ -92,6 +92,7 @@ if ( ! class_exists( 'AweCodBoxMP\Enqueue' ) ) {
 					'api_url'		=>	get_home_url() . '/wp-json/mp-sms/v2/',
 					'options'		=>	Admin::get_instance()->GetOptions( SMS::$id ),
 					'verified'		=>	$verified,
+					'admin_url'		=>	admin_url( 'admin.php?page=mp-sms' ),
 				] );
 			}
 		}

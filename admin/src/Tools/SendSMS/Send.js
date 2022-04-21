@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import {Form, Input, Button, message, Row, Col } from 'antd';
-import { UserOutlined, LockOutlined, LoadingOutlined  } from '@ant-design/icons';
+import { UserOutlined  } from '@ant-design/icons';
 import { __ } from '@wordpress/i18n';
+import Styles from '../../css';
 
-const Settings = () => {
+const Send = () => {
+
+	const { TextArea } = Input;
 
 	const [options, setOptions] = useState({
 		loading : false
@@ -53,26 +56,24 @@ const Settings = () => {
 
 	return (
 		<Row>
-			<Col span={8}>
+			<Col span={8} >
 				<Form
 				layout="vertical"
 				name="basic"
-				initialValues={{
-					username: mp_sms_localize.options.username,
-					password: mp_sms_localize.options.password
-				}}
 				onFinish={onFinish}
 				onFinishFailed={onFinishFailed}
 				autoComplete="off"
 				>
 
-					<Form.Item label={ __( 'Username', mp_sms_localize.text_domain ) } name="username" rules={[{ required: true, message: __( 'Please input your username!', mp_sms_localize.text_domain ) }]} >
-						<Input size="large"  addonBefore={<UserOutlined />} />
+					<Form.Item label={ __( 'Phone Number', mp_sms_localize.text_domain ) } name="username" rules={[{ required: true, message: __( 'Please input mobile phone number', mp_sms_localize.text_domain ) }]} >
+						<Input size="large"  placeholder={ __( '0912xxxx or 0912xxx,0935xxx,0919xxx', mp_sms_localize.text_domain ) } showCount maxLength={199} />
+						<small className="mp-f-d">{ __( 'You can only send 100 SMS per time', mp_sms_localize.text_domain ) }</small>
 					</Form.Item>
 
-					<Form.Item label={ __( 'Password', mp_sms_localize.text_domain ) } name="password" rules={[{ required: true, message: __( 'Please input your password!', mp_sms_localize.text_domain )  }]} >
-						<Input.Password size="medium"  addonBefore={<LockOutlined />} />
+					<Form.Item label={ __( 'SMS Content', mp_sms_localize.text_domain ) } name="sms_content" rules={[{ required: true, message: __( 'Please input your password!', mp_sms_localize.text_domain )  }]} >
+						<TextArea showCount rows={4} />
 					</Form.Item>
+					
 
 					<Form.Item>
 						<Button
@@ -86,10 +87,11 @@ const Settings = () => {
 
 				</Form>
 			</Col>
-			<Col span={16}>
+			<Col span={16} >
+
 			</Col>
 		</Row>
 	)
 }
 
-export default Settings
+export default Send
