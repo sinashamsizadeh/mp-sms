@@ -96,6 +96,7 @@ if ( ! class_exists( 'AweCodBoxMP\Enqueue' ) ) {
 					'options'		=>	Admin::get_instance()->GetOptions( SMS::$id ),
 					'verified'		=>	$verified,
 					'admin_url'		=>	admin_url( 'admin.php?page=mp-sms' ),
+					'purchase'		=>	'https://awecodebox.com/plugins/mp-sms/pricing/',
 					'expandable'	=> apply_filters( SMS::$id . '_expandable', $expandable )
 				] );
 			}

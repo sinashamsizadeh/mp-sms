@@ -5,6 +5,7 @@ import { Col } from 'antd';
 import { __ } from '@wordpress/i18n';
 import Settings from './Settings/index';
 import SendSMS from './SendSMS/index';
+import SendByWebService from './SendSMSWebService/index';
 import Styles from '../css';
 
 const { TabPane } = Tabs;
@@ -20,8 +21,8 @@ const Tools = () => {
 				<TabPane tab={ <span> <MailOutlined />{ __( 'Send SMS', mp_sms_localize.text_domain ) }</span> } key="mp-sms-send" >
 					<SendSMS />
 				</TabPane>
-				<TabPane tab={ <span> <MailOutlined />{ __( 'Send SMS ( Web Service )', mp_sms_localize.text_domain ) }</span> } key="mp-sms-send-webservice" >
-					<Settings />
+				<TabPane tab={ <span> <MailOutlined />{ __( 'Send SMS ( Web Service )', mp_sms_localize.text_domain ) } <span className="mp-sms-p-l"> { __( 'Pro ', mp_sms_localize.text_domain ) }</span></span> } key="mp-sms-send-webservice" >
+					<SendByWebService />
 				</TabPane>
 			</Tabs>
 		</Col>

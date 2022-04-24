@@ -14,12 +14,6 @@ const SendSMS = () => {
 					<Send />
 				</div>
 			</Col>
-			<Col span={24} >
-				<h1 style={Styles.InnerSectionTitle}>{ __( 'Send Bulk SMS', mp_sms_localize.text_domain ) }</h1>
-				<div className="send-sms" style={Styles.InnerSectionContent}>
-					tab1
-				</div>
-			</Col>
 		</Row>
 	)
 }

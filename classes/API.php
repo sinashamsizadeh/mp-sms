@@ -143,7 +143,7 @@ if ( ! class_exists( 'AweCodBoxMP\MP\API' ) ) {
 			self::$mb_namespace	= SMS::$slug . '/v2';
 			self::$auth			= 'auth';
 			self::$credits		= 'credits';
-			self::$send			= 'send';
+			self::$send			= 'custom_users';
 			self::$options		= $this->GetOptions();
 			self::$username		= isset ( self::$options['username'] ) ? self::$options['username'] : '';
 			self::$password		= isset ( self::$options['password'] ) ? self::$options['password'] : '';
@@ -535,24 +535,6 @@ if ( ! class_exists( 'AweCodBoxMP\MP\API' ) ) {
 			$response = curl_exec( $handle );
 
 			return json_decode( $response, true );
-		}
-
-		/**
-		 * Send sms.
-		 *
-		 * @since  1.0.0
-		 * @access public
-		 */
-		public function SendByWebService() {
-
-			$username	= '09121761087';
-			$password	= 'Mamad@123';
-			$bodyId		= '61237';
-			$text		= 'سلام این تست میباشد';
-			$api		= new \MelipayamakApi( $username, $password );
-			$smsRest	= $api->sms();
-			$to			= '09355012489';
-			$response = $smsRest->sendByBaseNumber($text, $to, $bodyId);
 		}
 
 		/**
