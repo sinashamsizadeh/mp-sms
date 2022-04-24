@@ -16,3 +16,7 @@
 .mp-f-d {
     color: #686868;
 }
+
+.ant-form-item-control-input {
+    min-height: 0 !important;
+}

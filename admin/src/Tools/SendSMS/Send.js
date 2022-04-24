@@ -1,16 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import {Form, Input, Button, message, Row, Col } from 'antd';
-import { UserOutlined  } from '@ant-design/icons';
+import {Form, Input, Button, message, Row, Col, Select, Tooltip, Modal } from 'antd';
+import { UserOutlined, QuestionCircleOutlined } from '@ant-design/icons';
 import { __ } from '@wordpress/i18n';
 import Styles from '../../css';
 
 const Send = () => {
 
-	const { TextArea } = Input;
+	const { TextArea }	= Input;
+	const { Option }	= Select;
+	let numbers = [];
+	const result = [];
 
 	const [options, setOptions] = useState({
-		loading : false
+		loading : false,
+		numtype : 'custom_users',
+		send : false,
+		result: null
 	});
 
 	const onFinish = (values) => {
@@ -19,61 +25,152 @@ const Send = () => {
 			loading: true
 		});
 		
-
-		axios.post(`${mp_sms_localize.api_url}auth/`, values, {
+		axios.post(`${mp_sms_localize.api_url}send/`, values, {
 			headers:{
 				'Content-Type':'application/json',
 			},
 		}).then( res => {
 			
-			if ( res.data.code == 200 ) {
-				message.success( res.data.message );
-			} else {
-				message.error( res.data.message );
+			console.log(res.data.string);
+			console.log(typeof res.data.string);
+			console.log(res.data.string.length);
+
+			if ( typeof res.data.string == 'object' ) {
+				
+				for ( let i = 0; i <= res.data.string.length; i++ ) {
+					
+					if ( res.data.string[i] == '0' ) {
+
+						message =  __( 'Username or password is incorrect.', mp_sms_localize.text_domain );
+					} else if ( res.data.string[i] == '1' ) {
+		
+						message =  __( 'The request was completed successfully.', mp_sms_localize.text_domain );
+					} else if ( res.data.string[i] == '2' ) {
+		
+						message =  __( 'Credit is not enough.', mp_sms_localize.text_domain );
+					} else if ( res.data.string[i] == '3' ) {
+		
+						message =  __( 'Restrictions on daily submissions.', mp_sms_localize.text_domain );
+					}  else if ( res.data.string[i] == '4' ) {
+		
+						message =  __( 'Limitation on posting volume.', mp_sms_localize.text_domain );
+					} else if ( res.data.string[i] == '5' ) {
+		
+						message =  __( 'Sender number is not valid.', mp_sms_localize.text_domain );
+					} else if ( res.data.string[i] == '6' ) {
+		
+						message =  __( 'The system is being updated.', mp_sms_localize.text_domain );
+					} else if ( res.data.string[i] == '7' ) {
+		
+						message =  __( 'The text contains the word filtered.', mp_sms_localize.text_domain );
+					} else if ( res.data.string[i] == '9' ) {
+		
+						message =  __( 'Sending from public lines through web service is not possible.', mp_sms_localize.text_domain );
+					} else if ( res.data.string[i] == '10' ) {
+		
+						message =  __( 'The user is not active.', mp_sms_localize.text_domain );
+					} else if ( res.data.string[i] == '11' ) {
+						
+						message =  __( 'Not sent.', mp_sms_localize.text_domain );
+					} else if ( res.data.string[i] == '12' ) {
+						
+						message =  __( 'User authentication are not complete.', mp_sms_localize.text_domain );
+					} else {
+						
+						message = __( 'SMS successfully sent.', mp_sms_localize.text_domain );
+					}
+					
+					result.push(<p>{res.data.numbers[i]} : {message}</p>) ;
+				}
+
 			}
+			
 
 			setOptions({
-				loading: false
+				loading : false,
+				numtype : options.numtype,
+				send : true,
+				result: result
 			});
 
-			setTimeout(() => {
-				window.location.replace(mp_sms_localize.admin_url);
-			}, 1500 );
-
 		}).catch(err => {
-			message.warning( err );
+
+			console.log(err);
 
 			setOptions({
 				loading: false
 			});
 		});
-
 	};
 
 	const onFinishFailed = (errorInfo) => {
 		console.log('Failed:', errorInfo);
 	};
 
+	const handleNumbersType = (type) => {
+
+		setOptions({
+			loading : options.loading,
+			numtype : type,
+		});
+
+	};
+
 	return (
 		<Row>
+			<Modal
+				title={ __( 'Report the status of sending messages.', mp_sms_localize.text_domain ) }
+				centered
+				visible={options.send}
+				width={768}
+				bodyStyle={{height:'400px',overflowY:'scroll'}}
+				footer={[
+					<Button key="ok" onClick={() => setOptions({
+						loading : false,
+						numtype : 'custom_users',
+						send : false
+					})}>
+						{ __( 'OK', mp_sms_localize.text_domain ) }
+					</Button>,
+				]}
+			>
+				{options.result}
+			</Modal>
+
 			<Col span={8} >
 				<Form
 				layout="vertical"
-				name="basic"
+				name="send_sms"
+				initialValues={{
+					numbers_type: 'custom_users',
+				}}
 				onFinish={onFinish}
 				onFinishFailed={onFinishFailed}
 				autoComplete="off"
 				>
 
-					<Form.Item label={ __( 'Phone Number', mp_sms_localize.text_domain ) } name="username" rules={[{ required: true, message: __( 'Please input mobile phone number', mp_sms_localize.text_domain ) }]} >
-						<Input size="large"  placeholder={ __( '0912xxxx or 0912xxx,0935xxx,0919xxx', mp_sms_localize.text_domain ) } showCount maxLength={199} />
-						<small className="mp-f-d">{ __( 'You can only send 100 SMS per time', mp_sms_localize.text_domain ) }</small>
+					<Form.Item label={ __( 'Select the source of phone numbers', mp_sms_localize.text_domain ) } name="numbers_type">
+						<Select size="large" allowClear onChange={handleNumbersType}>
+							<Option value="custom_users">{ __( 'Custom Numbers', mp_sms_localize.text_domain ) }</Option>
+							<Option value="woo_users">{ __( 'Woocommerce Numbers', mp_sms_localize.text_domain ) }</Option>
+						</Select>
 					</Form.Item>
 
-					<Form.Item label={ __( 'SMS Content', mp_sms_localize.text_domain ) } name="sms_content" rules={[{ required: true, message: __( 'Please input your password!', mp_sms_localize.text_domain )  }]} >
-						<TextArea showCount rows={4} />
+					<Form.Item
+						shouldUpdate={(prevValues, currentValues) => prevValues.numbers_type !== currentValues.numbers_type}
+					>
+						{({ getFieldValue }) =>
+							getFieldValue('numbers_type') === 'custom_users' ? (
+								<Form.Item name="custom_users" label={<Tooltip overlayInnerStyle={{width:'450px'}} title={ __( 'You can only send 100 SMS per time. ( separate the numbers with "," )', mp_sms_localize.text_domain ) } placement="right" > { __( 'Phone Number', mp_sms_localize.text_domain )  }<QuestionCircleOutlined style={{marginLeft:'8px'}}/> </Tooltip>} rules={[{ required: true, message: __( 'Please input mobile phone number', mp_sms_localize.text_domain ) }]} >
+									<TextArea rows={4} placeholder={ __( '0912xxxx or 0912xxx,0935xxx,0919xxx', mp_sms_localize.text_domain ) } showCount maxLength={199} />
+								</Form.Item> 
+							) : null
+						}
 					</Form.Item>
-					
+
+					<Form.Item name="sms_content" label={ __( 'SMS Content', mp_sms_localize.text_domain )  } rules={[{ required: true, message: __( 'Please input SMS Content', mp_sms_localize.text_domain ) }]} >
+						<TextArea rows={4} placeholder={ __( 'The SMS Content', mp_sms_localize.text_domain ) } showCount/>
+					</Form.Item>
 
 					<Form.Item>
 						<Button
@@ -81,7 +178,7 @@ const Send = () => {
 						htmlType="submit"
 						loading={options.loading}
 						>
-							{  mp_sms_localize.verified == 'false' ? __( 'Submit', mp_sms_localize.text_domain ) : __( 'Update', mp_sms_localize.text_domain ) }
+							{  mp_sms_localize.verified == 'false' ? __( 'Submit', mp_sms_localize.text_domain ) : __( 'SEND', mp_sms_localize.text_domain ) }
 						</Button>
 					</Form.Item>
 
@@ -94,4 +191,4 @@ const Send = () => {
 	)
 }
 
-export default Send
+export default Send;

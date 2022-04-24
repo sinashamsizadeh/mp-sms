@@ -65,25 +65,33 @@ if ( ! class_exists( 'AweCodBoxMP\MP\API' ) ) {
 		 * auth.
 		 *
 		 * @since   1.0.0
-		 * @access  private
+		 * @access  protected
 		 */
-		private static $auth;
+		protected static $auth;
 		
 		/**
 		 * credits.
 		 *
 		 * @since   1.0.0
-		 * @access  private
+		 * @access  protected
 		 */
-		private static $credits;
+		protected static $credits;
+		
+		/**
+		 * send.
+		 *
+		 * @since   1.0.0
+		 * @access  protected
+		 */
+		protected static $send;
 	
 		/**
 		 * mb_namespace of this cwb routes.
 		 
 		 * @since   1.0.0
-		 * @access  private
+		 * @access  protected
 		 */
-		private static $mb_namespace;
+		protected static $mb_namespace;
 
 		/**
 		 * Provides access to a single instance of a module using the singleton pattern.
@@ -117,24 +125,25 @@ if ( ! class_exists( 'AweCodBoxMP\MP\API' ) ) {
 		 * Hooks.
 		 *
 		 * @since 1.0.0
-		 * @access private
+		 * @access protected
 		 */
-		private function hooks() {
+		protected function hooks() {
 	
-			add_action( 'rest_api_init', [ $this,'setup_routs' ] );
+			add_action( 'rest_api_init', [ $this,'SetupRouts' ] );
 		}
 	
 		/**
 		 * Definition.
 		 *
 		 * @since  1.0.0
-		 * @access private
+		 * @access protected
 		 */
-		private function definition() {
+		protected function definition() {
 			
 			self::$mb_namespace	= SMS::$slug . '/v2';
 			self::$auth			= 'auth';
 			self::$credits		= 'credits';
+			self::$send			= 'send';
 			self::$options		= $this->GetOptions();
 			self::$username		= isset ( self::$options['username'] ) ? self::$options['username'] : '';
 			self::$password		= isset ( self::$options['password'] ) ? self::$options['password'] : '';
@@ -142,9 +151,38 @@ if ( ! class_exists( 'AweCodBoxMP\MP\API' ) ) {
 		}
 
 		/**
+		 * setup routes.
+		 *
+		 * @since 1.0.0
+		 * @access public
+		 */
+		public function SetupRouts() {
+	
+			register_rest_route( self::$mb_namespace , '/' . self::$auth , [
+				'methods'				=> \WP_REST_Server::EDITABLE,
+				'callback'				=> [$this, 'Auth'],
+				'permission_callback'	=> [$this, 'update_item_permissions_check'],
+			] );
+
+			register_rest_route( self::$mb_namespace , '/' . self::$credits , [
+				'methods'				=> \WP_REST_Server::EDITABLE,
+				'callback'				=> [$this, 'Credits'],
+				'permission_callback'	=> [$this, 'update_item_permissions_check'],
+			] );
+
+			register_rest_route( self::$mb_namespace , '/' . self::$send , [
+				'methods'				=> \WP_REST_Server::EDITABLE,
+				'callback'				=> [$this, 'Send'],
+				'permission_callback'	=> [$this, 'update_item_permissions_check'],
+			] );
+
+		}
+
+		/**
 		 * Check if the user has permission.
 		 *
 		 * @since 1.0.0
+		 * @access public
 		 */
 		public function user_has_permission( $request  ) {
 
@@ -159,6 +197,7 @@ if ( ! class_exists( 'AweCodBoxMP\MP\API' ) ) {
 		 * Check if a given request has access to update options.
 		 *
 		 * @since 1.0.0
+		 * @access public
 		 */
 		public function update_item_permissions_check( $request ) {
 			
@@ -170,39 +209,15 @@ if ( ! class_exists( 'AweCodBoxMP\MP\API' ) ) {
 		 * create route response.
 		 *
 		 * @since 1.0.0
-		 * @access private
+		 * @access protected
 		 */
-		public function create_response( $message, $responseCode ) {
+		protected function create_response( $message, $responseCode ) {
 
 			return new \WP_REST_Response( $message, $responseCode );
 		}
-	
-	
-		
-		/**
-		 * setup routes.
-		 *
-		 * @since 1.0.0
-		 * @access private
-		 */
-		public function setup_routs() {
-	
-			register_rest_route( self::$mb_namespace , '/' . self::$auth , [
-				'methods'				=> \WP_REST_Server::EDITABLE,
-				'callback'				=> [$this, 'Auth'],
-				'permission_callback'	=> [$this, 'update_item_permissions_check'],
-			] );
-
-			register_rest_route( self::$mb_namespace , '/' . self::$credits , [
-				'methods'				=> \WP_REST_Server::EDITABLE,
-				'callback'				=> [$this, 'Credits'],
-				'permission_callback'	=> [$this, 'update_item_permissions_check'],
-			] );
-
-		}
 
 		/**
-		 * Send sms.
+		 * Get Plugin Options.
 		 *
 		 * @since  1.0.0
 		 * @access protected
@@ -252,10 +267,44 @@ if ( ! class_exists( 'AweCodBoxMP\MP\API' ) ) {
 		 * @since  1.0.0
 		 * @access public
 		 */
-		public function Sned( $request ) {
+		public function Send( $request ) {
 
-			$params		= $request->get_params();
-			$response	= $this->GetPatterns( $params );
+			$params	= $request->get_params();
+
+			if ( isset( $params['numbers_type'] ) && $params['numbers_type'] == 'custom_users' ) {
+
+				if ( isset( $params['custom_users'] ) ) {
+
+					$multi_numbers = strpos( $params['custom_users'], ',' );
+
+					if ( $multi_numbers ) {
+
+						$numbers = sanitize_text_field( $params['custom_users'] );
+						$numbers = explode( ',', $numbers );
+						
+					} else {
+
+						$numbers = sanitize_text_field( $params['custom_users'] );
+					}
+
+					if ( isset( $params['sms_content'] ) ) {
+
+						$content = sanitize_text_field( $params['sms_content'] );
+					}
+
+				}
+
+			}
+
+			$api		= new MelipayamakApi( self::$username, self::$password );
+			$sms		= $api->sms( 'soap' );
+			$to			= $numbers;
+			$from		= $this->GetNumbers()[0]['Number'];
+			$text		= $content;
+			$isFlash	= false;
+
+			$response			= $sms->send( $to, $from, $text, $isFlash );
+			$response->numbers	= $numbers;
 
 			return $this->create_response( $response , 200 );
 		}
@@ -377,7 +426,7 @@ if ( ! class_exists( 'AweCodBoxMP\MP\API' ) ) {
 					'password'		=> self::$options['password'],
 					'irancellCount'	=> '0',
 					'mtnCount'		=> '1',
-					'from'			=> $this->GetNumbers()[0],
+					'from'			=> $this->GetNumbers()[0]['Number'],
 					'text'			=> 'شششششش'
 				];
 	
@@ -417,7 +466,7 @@ if ( ! class_exists( 'AweCodBoxMP\MP\API' ) ) {
 					'password'		=> self::$options['password'],
 					'irancellCount'	=> '1',
 					'mtnCount'		=> '0',
-					'from'			=> $this->GetNumbers()[0],
+					'from'			=> $this->GetNumbers()[0]['Number'],
 					'text'			=> 'شششششش'
 				];
 	
@@ -504,6 +553,27 @@ if ( ! class_exists( 'AweCodBoxMP\MP\API' ) ) {
 			$smsRest	= $api->sms();
 			$to			= '09355012489';
 			$response = $smsRest->sendByBaseNumber($text, $to, $bodyId);
+		}
+
+		/**
+		 * Get Users.
+		 *
+		 * @since  1.0.0
+		 * @access public
+		 */
+		public function GetUsers( $request ) {
+
+			$params		= $request->get_params();
+			$response	= [];
+			
+			$users = get_users();
+			
+			foreach( $users	 as $key => $user ) {
+
+				$response[] = $user->data->ID;
+			}
+
+			return $this->create_response( $response , 200 );
 		}
 
 		/**

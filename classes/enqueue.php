@@ -80,8 +80,11 @@ if ( ! class_exists( 'AweCodBoxMP\Enqueue' ) ) {
 				wp_enqueue_style( SMS::$slug . 'admin', SMS::$url . 'admin/build/index.css', SMS::$version, true );
 				wp_enqueue_script( SMS::$slug . 'admin', SMS::$url . 'admin/build/index.js', ['wp-element', 'wp-i18n'] , SMS::$version, true );
 
-				$verified = ! empty( Admin::get_instance()->GetOptions( SMS::$id )['username'] ) && ! empty( Admin::get_instance()->GetOptions( SMS::$id )['password'] ) && ! empty( Admin::get_instance()->GetOptions( SMS::$id )['patterns'] ) ? 'true' : 'false';
-				
+				$verified	= ! empty( Admin::get_instance()->GetOptions( SMS::$id )['username'] ) && ! empty( Admin::get_instance()->GetOptions( SMS::$id )['password'] ) && ! empty( Admin::get_instance()->GetOptions( SMS::$id )['patterns'] ) ? 'true' : 'false';
+				$expandable = [
+					'trusted' => false
+				];
+
 				wp_localize_script( SMS::$slug . 'admin', SMS::$id . '_localize', [
 					'ajax' => [
 						'url'			=> admin_url( 'admin-ajax.php' ),
@@ -93,6 +96,7 @@ if ( ! class_exists( 'AweCodBoxMP\Enqueue' ) ) {
 					'options'		=>	Admin::get_instance()->GetOptions( SMS::$id ),
 					'verified'		=>	$verified,
 					'admin_url'		=>	admin_url( 'admin.php?page=mp-sms' ),
+					'expandable'	=> apply_filters( SMS::$id . '_expandable', $expandable )
 				] );
 			}
 		}
