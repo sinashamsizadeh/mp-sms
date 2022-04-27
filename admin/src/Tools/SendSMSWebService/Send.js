@@ -18,7 +18,7 @@ const SendByWebService = () => {
 
 		if ( mp_sms_localize.options.patterns[k].BodyStatus == 1 ) {
 
-			patterns.push(<Option key={mp_sms_localize.options.patterns[k].Body} title={mp_sms_localize.options.patterns[k].Body}>{mp_sms_localize.options.patterns[k].Title}</Option>);
+			patterns.push(<Option key={mp_sms_localize.options.patterns[k].BodyID} title={mp_sms_localize.options.patterns[k].Body} value={mp_sms_localize.options.patterns[k].BodyID}>{mp_sms_localize.options.patterns[k].Title}</Option>);
 		}
 	}
 
@@ -64,44 +64,53 @@ const SendByWebService = () => {
 			console.log(res.data.string);
 			console.log(typeof res.data.string);
 			console.log(res.data.string.length);
-
+			
 			if ( typeof res.data.string == 'object' ) {
 				
 				for ( let i = 0; i < res.data.string.length; i++ ) {
 					
-					if ( res.data.string[i] == '0' ) {
+					if ( res.data.string[i] == '-7' ) {
 
-						message =  __( 'Username or password is incorrect.', mp_sms_localize.text_domain );
-					} else if ( res.data.string[i] == '1' ) {
+						message =  __( 'An error has occurred in the sender number. Contact MeliPayamak support.', mp_sms_localize.text_domain );
+					} else if ( res.data.string[i] == '-6' ) {
 		
-						message =  __( 'The request was completed successfully.', mp_sms_localize.text_domain );
+						message =  __( 'Internal error occurred Contact MeliPayamak support.', mp_sms_localize.text_domain );
+					} else if ( res.data.string[i] == '-5' ) {
+		
+						message =  __( 'The submitted text does not match the specified params in the default text.', mp_sms_localize.text_domain );
+					} else if ( res.data.string[i] == '-4' ) {
+		
+						message =  __( 'The submitted text code is incorrect or has not been verified by the system administrator.', mp_sms_localize.text_domain );
+					}  else if ( res.data.string[i] == '-3' ) {
+		
+						message =  __( 'The line sent is not defined in the system, contact the system MeliPayamak support.', mp_sms_localize.text_domain );
+					} else if ( res.data.string[i] == '-2' ) {
+		
+						message =  __( 'Number limit is the limit each time you send a mobile number.', mp_sms_localize.text_domain );
+					} else if ( res.data.string[i] == '-1' ) {
+		
+						message =  __( 'Access to this web service is disabled. Contact MeliPayamak support.', mp_sms_localize.text_domain );
+					} else if ( res.data.string[i] == '-1' ) {
+		
+						message =  __( 'The text contains the word filtered.', mp_sms_localize.text_domain );
+					} else if ( res.data.string[i] == '0' ) {
+		
+						message =  __( 'Username or password is incorrect.', mp_sms_localize.text_domain );
 					} else if ( res.data.string[i] == '2' ) {
 		
 						message =  __( 'Credit is not enough.', mp_sms_localize.text_domain );
-					} else if ( res.data.string[i] == '3' ) {
-		
-						message =  __( 'Restrictions on daily submissions.', mp_sms_localize.text_domain );
-					}  else if ( res.data.string[i] == '4' ) {
-		
-						message =  __( 'Limitation on posting volume.', mp_sms_localize.text_domain );
-					} else if ( res.data.string[i] == '5' ) {
-		
-						message =  __( 'Sender number is not valid.', mp_sms_localize.text_domain );
 					} else if ( res.data.string[i] == '6' ) {
-		
+						
 						message =  __( 'The system is being updated.', mp_sms_localize.text_domain );
 					} else if ( res.data.string[i] == '7' ) {
-		
-						message =  __( 'The text contains the word filtered.', mp_sms_localize.text_domain );
-					} else if ( res.data.string[i] == '9' ) {
-		
-						message =  __( 'Sending from public lines through web service is not possible.', mp_sms_localize.text_domain );
+						
+						message =  __( 'The text contains the filtered word, Contact MeliPayamak support.', mp_sms_localize.text_domain );
 					} else if ( res.data.string[i] == '10' ) {
-		
-						message =  __( 'The user is not active.', mp_sms_localize.text_domain );
+						
+						message =  __( 'The intended user is not active.', mp_sms_localize.text_domain );
 					} else if ( res.data.string[i] == '11' ) {
 						
-						message =  __( 'Not sent.', mp_sms_localize.text_domain );
+						message =  __( 'Not Send.', mp_sms_localize.text_domain );
 					} else if ( res.data.string[i] == '12' ) {
 						
 						message =  __( 'User authentication are not complete.', mp_sms_localize.text_domain );
@@ -121,6 +130,8 @@ const SendByWebService = () => {
 				send : true,
 				result: result
 			});
+
+			console.log(result);
 
 		}).catch(err => {
 
@@ -203,6 +214,11 @@ const SendByWebService = () => {
 							{patterns}
 						</Select>
 					</Form.Item>
+
+					<Form.Item name="patern_params" label={<Tooltip overlayInnerStyle={{width:'450px'}} title={ __( 'separate the parms with ",". ( Example: param1,param2,param3 )', mp_sms_localize.text_domain ) } placement="right" >
+						{ __( 'Pattern params', mp_sms_localize.text_domain )  }<QuestionCircleOutlined style={{marginLeft:'8px'}}/> </Tooltip>} rules={[{ required: true, message: __( 'Please input pattern params', mp_sms_localize.text_domain ) }]} >
+						<TextArea rows={1} placeholder={ __( 'param1 or param1,param2,param3x', mp_sms_localize.text_domain ) } showCount maxLength={199} />
+					</Form.Item> 
 
 					<Form.Item>
 						<Button

@@ -222,9 +222,19 @@ if ( ! class_exists( 'AweCodBoxMP\MP\API' ) ) {
 		 * @since  1.0.0
 		 * @access protected
 		 */
-		protected function GetOptions() {
+		protected function GetOptions( $id = '' ) {
 
-			return json_decode( get_option( SMS::$id ), true );
+			if ( $id != '' ) {
+
+				$option = json_decode( get_option( SMS::$id ), true );
+				$option = $option[$id];
+
+			} else {
+
+				$option = json_decode( get_option( SMS::$id ), true );
+			}
+
+			return $option;
 		}
 
 		/**
@@ -345,6 +355,11 @@ if ( ! class_exists( 'AweCodBoxMP\MP\API' ) ) {
 			];
 
 			$body = $client->GetSharedServiceBody( $data )->GetSharedServiceBodyResult;
+
+			if ( isset( $params['output'] ) ) {
+
+				return $body->ShareServiceBody;
+			}
 
 			if ( isset( $body ) ) {
 				
