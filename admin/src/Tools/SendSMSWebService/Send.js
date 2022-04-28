@@ -135,7 +135,7 @@ const SendByWebService = () => {
 
 		}).catch(err => {
 
-			console.log(err);
+			message.error(err);
 
 			setOptions({
 				loading: false
@@ -177,7 +177,7 @@ const SendByWebService = () => {
 				{options.result}
 			</Modal>
 
-			<Col span={8} >
+			<Col span={11} >
 				<Form
 				layout="vertical"
 				name="send_sms"
@@ -215,7 +215,7 @@ const SendByWebService = () => {
 						</Select>
 					</Form.Item>
 
-					<Form.Item name="patern_params" label={<Tooltip overlayInnerStyle={{width:'450px'}} title={ __( 'separate the parms with ",". ( Example: param1,param2,param3 )', mp_sms_localize.text_domain ) } placement="right" >
+					<Form.Item name="patern_params" extra={ __( 'Also can use nickname, first_name and last_name for params when selecting WooCommerce Numbers', mp_sms_localize.text_domain ) } label={<Tooltip overlayInnerStyle={{width:'450px'}} title={ __( 'separate the parms with ",". ( Example: param1,param2,param3 )', mp_sms_localize.text_domain ) } placement="right" >
 						{ __( 'Pattern params', mp_sms_localize.text_domain )  }<QuestionCircleOutlined style={{marginLeft:'8px'}}/> </Tooltip>} rules={[{ required: true, message: __( 'Please input pattern params', mp_sms_localize.text_domain ) }]} >
 						<TextArea rows={1} placeholder={ __( 'param1 or param1,param2,param3x', mp_sms_localize.text_domain ) } showCount maxLength={199} />
 					</Form.Item> 
@@ -232,7 +232,7 @@ const SendByWebService = () => {
 
 				</Form>
 			</Col>
-			<Col span={16} >
+			<Col span={13} >
 
 			</Col>
 		</Row>

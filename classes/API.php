@@ -313,8 +313,16 @@ if ( ! class_exists( 'AweCodBoxMP\MP\API' ) ) {
 			$text		= $content;
 			$isFlash	= false;
 
-			$response			= $sms->send( $to, $from, $text, $isFlash );
-			$response->numbers	= $numbers;
+			if ( is_array( $numbers ) ) {
+
+				$response			= $sms->send( $to, $from, $text, $isFlash );
+				$response->numbers	= $numbers;
+			} else {
+				
+				$response				= [];
+				$response['string']		= [$sms->send( $to, $from, $text, $isFlash )];
+				$response['numbers']	= [$numbers];
+			}
 
 			return $this->create_response( $response , 200 );
 		}
@@ -574,7 +582,7 @@ if ( ! class_exists( 'AweCodBoxMP\MP\API' ) ) {
 		}
 
 		/**
-		 * Send sms.
+		 * Check Nonce.
 		 *
 		 * @since  1.0.0
 		 * @access public
@@ -582,7 +590,6 @@ if ( ! class_exists( 'AweCodBoxMP\MP\API' ) ) {
 		public function NoncePermissionsCheck() {
 
 			return check_ajax_referer( SMS::$id, 'nonce' );
-
 		}
 
 	}
