@@ -27,6 +27,30 @@ const Styles = {
 	},
 	InnerSectionContent: {
 		padding: '10px 0 11px',
+	},
+	Credits: {
+		Error: {
+			color: '#cd0000',
+			fontSize: '18px',
+			marginRight: '8px'
+		},
+		Success: {
+			color: '#00cd1d',
+			fontSize: '18px',
+			marginRight: '8px'
+		}
+	},
+	RTLCredits: {
+		Error: {
+			color: '#cd0000',
+			fontSize: '18px',
+			marginLeft: '8px'
+		},
+		Success: {
+			color: '#00cd1d',
+			fontSize: '18px',
+			marginLeft: '8px'
+		}
 	}
 };
 

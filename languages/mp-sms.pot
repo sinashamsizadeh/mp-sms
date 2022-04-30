@@ -1,65 +1,307 @@
-#, fuzzy
+# Copyright (c) AweCodeBox.
 msgid ""
 msgstr ""
-"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
-"Project-Id-Version: Melipayamak SMS\n"
-"POT-Creation-Date: 2022-04-28 11:49+0430\n"
-"PO-Revision-Date: 2022-04-28 11:41+0430\n"
-"Last-Translator: \n"
-"Language-Team: \n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.2\n"
-"X-Poedit-Basepath: ..\n"
-"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
-"X-Poedit-WPHeader: mp-sms.php\n"
-"X-Poedit-SourceCharset: UTF-8\n"
-"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
-"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
-"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
-"X-Poedit-SearchPath-0: .\n"
-"X-Poedit-SearchPathExcluded-0: *.js\n"
+"POT-Creation-Date: 2022-04-28T11:29:40+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.5.0\n"
 
-#: classes/API.php:355 classes/API.php:407
-msgid "Access denied."
+#: src/ServiceInfo/Credits.js:46
+msgid "Service Info"
 msgstr ""
 
-#: classes/API.php:379
-msgid "Successfully contacted to Meli Payamak WebService"
+#: src/ServiceInfo/Credits.js:53
+msgid "Authorized"
 msgstr ""
 
-#: classes/API.php:386 classes/API.php:426
-msgid ""
-"Failed to contact Meli Payamak, Please make sure username and password are "
-"correct"
+#: src/ServiceInfo/Credits.js:57
+msgid "Not authorized."
 msgstr ""
 
-#: classes/API.php:392 classes/API.php:432
-msgid "Something went wrong, Please try again"
+#: src/ServiceInfo/Credits.js:57
+msgid "Please login."
 msgstr ""
 
-#: classes/Admin.php:95
-msgid "MeliPayamak SMS Web service"
+#: src/ServiceInfo/Credits.js:64
+#: src/ServiceInfo/Credits.js:68
+msgid "You can send ~"
 msgstr ""
 
-#: classes/Admin.php:96
-msgid "SMS"
+#: src/ServiceInfo/Credits.js:64
+#: src/ServiceInfo/Credits.js:68
+msgid "Messages"
 msgstr ""
 
-#. Plugin Name of the plugin/theme
-msgid "Melipayamak SMS"
+#: src/ServiceInfo/Credits.js:77
+msgid "The price to send SMS for Irancell equal is"
 msgstr ""
 
-#. Plugin URI of the plugin/theme
-#. Author URI of the plugin/theme
-msgid "https://www.awecodebox.com/"
+#: src/ServiceInfo/Credits.js:77
+#: src/ServiceInfo/Credits.js:89
+msgid "T"
 msgstr ""
 
-#. Description of the plugin/theme
-msgid "It will send sms using meli payamak webservice."
+#: src/ServiceInfo/Credits.js:81
+#: src/ServiceInfo/Credits.js:93
+msgid "We are sorry, but we can't estimate the price. please login using the following form"
 msgstr ""
 
-#. Author of the plugin/theme
-msgid "AweCodeBOX"
+#: src/ServiceInfo/Credits.js:89
+msgid "The price to send SMS for Hamrah Aval equal is"
+msgstr ""
+
+#: src/Tools/index.js:16
+msgid "Tools"
+msgstr ""
+
+#: src/Tools/index.js:18
+msgid "Login"
+msgstr ""
+
+#: src/Tools/index.js:21
+#: src/Tools/SendSMS/index.js:12
+msgid "Send SMS"
+msgstr ""
+
+#: src/Tools/index.js:24
+msgid "Send SMS ( Web Service )"
+msgstr ""
+
+#: src/Tools/index.js:24
+#: src/Tools/SendSMS/Send.js:175
+msgid "Pro "
+msgstr ""
+
+#: src/Tools/SendSMS/Send.js:36
+#: src/Tools/SendSMSWebService/Send.js:45
+msgid "Access denied"
+msgstr ""
+
+#: src/Tools/SendSMS/Send.js:37
+#: src/Tools/SendSMSWebService/Send.js:46
+msgid "mp-sms"
+msgstr ""
+
+#: src/Tools/SendSMS/Send.js:65
+#: src/Tools/SendSMSWebService/Send.js:98
+msgid "Username or password is incorrect."
+msgstr ""
+
+#: src/Tools/SendSMS/Send.js:68
+msgid "The request was completed successfully."
+msgstr ""
+
+#: src/Tools/SendSMS/Send.js:71
+#: src/Tools/SendSMSWebService/Send.js:101
+msgid "Credit is not enough."
+msgstr ""
+
+#: src/Tools/SendSMS/Send.js:74
+msgid "Restrictions on daily submissions."
+msgstr ""
+
+#: src/Tools/SendSMS/Send.js:77
+msgid "Limitation on posting volume."
+msgstr ""
+
+#: src/Tools/SendSMS/Send.js:80
+msgid "Sender number is not valid."
+msgstr ""
+
+#: src/Tools/SendSMS/Send.js:83
+#: src/Tools/SendSMSWebService/Send.js:104
+msgid "The system is being updated."
+msgstr ""
+
+#: src/Tools/SendSMS/Send.js:86
+#: src/Tools/SendSMSWebService/Send.js:95
+msgid "The text contains the word filtered."
+msgstr ""
+
+#: src/Tools/SendSMS/Send.js:89
+msgid "Sending from public lines through web service is not possible."
+msgstr ""
+
+#: src/Tools/SendSMS/Send.js:92
+msgid "The user is not active."
+msgstr ""
+
+#: src/Tools/SendSMS/Send.js:95
+msgid "Not sent."
+msgstr ""
+
+#: src/Tools/SendSMS/Send.js:98
+#: src/Tools/SendSMSWebService/Send.js:116
+msgid "User authentication are not complete."
+msgstr ""
+
+#: src/Tools/SendSMS/Send.js:101
+#: src/Tools/SendSMSWebService/Send.js:119
+msgid "SMS successfully sent."
+msgstr ""
+
+#: src/Tools/SendSMS/Send.js:142
+#: src/Tools/SendSMSWebService/Send.js:162
+msgid "Report the status of sending messages."
+msgstr ""
+
+#: src/Tools/SendSMS/Send.js:153
+#: src/Tools/SendSMSWebService/Send.js:173
+msgid "OK"
+msgstr ""
+
+#: src/Tools/SendSMS/Send.js:172
+#: src/Tools/SendSMSWebService/Send.js:192
+msgid "Select the source of phone numbers"
+msgstr ""
+
+#: src/Tools/SendSMS/Send.js:174
+#: src/Tools/SendSMSWebService/Send.js:194
+msgid "Custom Numbers"
+msgstr ""
+
+#: src/Tools/SendSMS/Send.js:175
+#: src/Tools/SendSMSWebService/Send.js:195
+msgid "Woocommerce Numbers"
+msgstr ""
+
+#: src/Tools/SendSMS/Send.js:184
+#: src/Tools/SendSMSWebService/Send.js:204
+msgid "You can only send 100 SMS per time. ( separate the numbers with \",\" )"
+msgstr ""
+
+#: src/Tools/SendSMS/Send.js:184
+#: src/Tools/SendSMSWebService/Send.js:205
+msgid "Phone Number"
+msgstr ""
+
+#: src/Tools/SendSMS/Send.js:184
+#: src/Tools/SendSMSWebService/Send.js:205
+msgid "Please input mobile phone number"
+msgstr ""
+
+#: src/Tools/SendSMS/Send.js:185
+#: src/Tools/SendSMSWebService/Send.js:206
+msgid "0912xxxx or 0912xxx,0935xxx,0919xxx"
+msgstr ""
+
+#: src/Tools/SendSMS/Send.js:191
+msgid "SMS Content"
+msgstr ""
+
+#: src/Tools/SendSMS/Send.js:191
+msgid "Please input SMS Content"
+msgstr ""
+
+#: src/Tools/SendSMS/Send.js:192
+msgid "The SMS Content"
+msgstr ""
+
+#: src/Tools/SendSMS/Send.js:201
+#: src/Tools/SendSMSWebService/Send.js:229
+#: src/Tools/Settings/index.js:83
+msgid "Submit"
+msgstr ""
+
+#: src/Tools/SendSMS/Send.js:201
+#: src/Tools/SendSMSWebService/Send.js:229
+msgid "SEND"
+msgstr ""
+
+#: src/Tools/SendSMSWebService/index.js:12
+msgid "Send SMS Using Web Services"
+msgstr ""
+
+#: src/Tools/SendSMSWebService/Send.js:74
+msgid "An error has occurred in the sender number. Contact MeliPayamak support."
+msgstr ""
+
+#: src/Tools/SendSMSWebService/Send.js:77
+msgid "Internal error occurred Contact MeliPayamak support."
+msgstr ""
+
+#: src/Tools/SendSMSWebService/Send.js:80
+msgid "The submitted text does not match the specified params in the default text."
+msgstr ""
+
+#: src/Tools/SendSMSWebService/Send.js:83
+msgid "The submitted text code is incorrect or has not been verified by the system administrator."
+msgstr ""
+
+#: src/Tools/SendSMSWebService/Send.js:86
+msgid "The line sent is not defined in the system, contact the system MeliPayamak support."
+msgstr ""
+
+#: src/Tools/SendSMSWebService/Send.js:89
+msgid "Number limit is the limit each time you send a mobile number."
+msgstr ""
+
+#: src/Tools/SendSMSWebService/Send.js:92
+msgid "Access to this web service is disabled. Contact MeliPayamak support."
+msgstr ""
+
+#: src/Tools/SendSMSWebService/Send.js:107
+msgid "The text contains the filtered word, Contact MeliPayamak support."
+msgstr ""
+
+#: src/Tools/SendSMSWebService/Send.js:110
+msgid "The intended user is not active."
+msgstr ""
+
+#: src/Tools/SendSMSWebService/Send.js:113
+msgid "Not Send."
+msgstr ""
+
+#: src/Tools/SendSMSWebService/Send.js:212
+msgid "Select a pattern to send"
+msgstr ""
+
+#: src/Tools/SendSMSWebService/Send.js:212
+msgid "Please select a pattern"
+msgstr ""
+
+#: src/Tools/SendSMSWebService/Send.js:218
+msgid "Also can use nickname, first_name and last_name for params when selecting WooCommerce Numbers"
+msgstr ""
+
+#: src/Tools/SendSMSWebService/Send.js:218
+msgid "separate the parms with \",\". ( Example: param1,param2,param3 )"
+msgstr ""
+
+#: src/Tools/SendSMSWebService/Send.js:219
+msgid "Pattern params"
+msgstr ""
+
+#: src/Tools/SendSMSWebService/Send.js:219
+msgid "Please input pattern params"
+msgstr ""
+
+#: src/Tools/SendSMSWebService/Send.js:220
+msgid "param1 or param1,param2,param3x"
+msgstr ""
+
+#: src/Tools/Settings/index.js:69
+msgid "Username"
+msgstr ""
+
+#: src/Tools/Settings/index.js:69
+msgid "Please input your username!"
+msgstr ""
+
+#: src/Tools/Settings/index.js:73
+msgid "Password"
+msgstr ""
+
+#: src/Tools/Settings/index.js:73
+msgid "Please input your password!"
+msgstr ""
+
+#: src/Tools/Settings/index.js:83
+msgid "Update"
 msgstr ""

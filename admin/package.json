@@ -6,7 +6,10 @@
 	"scripts": {
 		"start": "wp-scripts start",
 		"build": "wp-scripts build",
-		"start:hot": "wp-scripts start --hot"
+		"start:hot": "wp-scripts start --hot",
+		"make:pot": "wp i18n make-pot . --allow-root --ignore-domain --domain=mp-sms --skip-audit --exclude=\"build,docs,dist,node_modules,vendor,.history\" --headers='{\"Last-Translator\":\"AweCodeBox <awecodebox@gmail.com>\",\"Language-Team\":\"AweCodeBox <awecodebox@gmail.com>\"}' --file-comment=\"Copyright (c) AweCodeBox.\" ../languages/mp-sms.pot",
+		"make:json": "npx po2json ../languages/mp-sms-fa_IR.po ../languages/mp-sms-fa_IR-mp-smsadmin.json -f jed1.x",
+		"make-json": "find \"../languages/\" -iname \"*.po\" -type f -exec sh -c 'npx po2json $0 $(dirname $0)/$(basename $0 .po)-my-plugin-script-handler.json -f jed1.x' {} \\;"
 	},
 	"keywords": [
 		"Melipayamk",
@@ -21,6 +24,8 @@
 	"dependencies": {
 		"antd": "^4.19.5",
 		"axios": "^0.26.1",
-		"html-react-parser": "^1.4.12"
+		"html-react-parser": "^1.4.12",
+		"npx": "^10.2.2",
+		"po2json": "^0.4.5"
 	}
 }

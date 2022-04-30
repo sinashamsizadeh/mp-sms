@@ -1,25 +1,585 @@
 msgid ""
 msgstr ""
-"Plural-Forms: nplurals=2; plural=(n==0 || n==1);\n"
 "Project-Id-Version: Melipayamak SMS\n"
-"POT-Creation-Date: 2022-04-28 11:49+0430\n"
-"PO-Revision-Date: 2022-04-28 11:56+0430\n"
+"POT-Creation-Date: 2022-04-28 14:01+0430\n"
+"PO-Revision-Date: 2022-04-28 14:15+0430\n"
+"Last-Translator: \n"
 "Language-Team: \n"
+"Language: fa_IR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n==0 || n==1);\n"
 "X-Generator: Poedit 2.2\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-Flags-xgettext: --add-comments=translators:\n"
 "X-Poedit-WPHeader: mp-sms.php\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
-"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;"
-"_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
-"Last-Translator: \n"
-"Language: fa_IR\n"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: admin/src/ServiceInfo/Credits_20220421131413.js:46
+#: admin/src/ServiceInfo/Credits_20220428140014.js:46
+#: admin/src/ServiceInfo/Credits_20220428140048.js:46
+msgid "Service Info"
+msgstr "مشخصات سرویس"
+
+#: admin/src/ServiceInfo/Credits_20220421131413.js:53
+#: admin/src/ServiceInfo/Credits_20220428140014.js:53
+#: admin/src/ServiceInfo/Credits_20220428140048.js:53
+msgid "Authorized"
+msgstr "احراز شده"
+
+#: admin/src/ServiceInfo/Credits_20220421131413.js:57
+#: admin/src/ServiceInfo/Credits_20220428140014.js:57
+#: admin/src/ServiceInfo/Credits_20220428140048.js:57
+msgid "Not authorized."
+msgstr "احراز نشده"
+
+#: admin/src/ServiceInfo/Credits_20220421131413.js:57
+#: admin/src/ServiceInfo/Credits_20220428140014.js:57
+#: admin/src/ServiceInfo/Credits_20220428140048.js:57
+msgid "Please login."
+msgstr "لطفا وارد شوید"
+
+#: admin/src/ServiceInfo/Credits_20220421131413.js:64
+#: admin/src/ServiceInfo/Credits_20220421131413.js:68
+#: admin/src/ServiceInfo/Credits_20220428140014.js:64
+#: admin/src/ServiceInfo/Credits_20220428140014.js:68
+#: admin/src/ServiceInfo/Credits_20220428140048.js:64
+#: admin/src/ServiceInfo/Credits_20220428140048.js:68
+msgid "You can send ~"
+msgstr "شما میتوانید ارسال کنید ~"
+
+#: admin/src/ServiceInfo/Credits_20220421131413.js:64
+#: admin/src/ServiceInfo/Credits_20220421131413.js:68
+#: admin/src/ServiceInfo/Credits_20220428140014.js:64
+#: admin/src/ServiceInfo/Credits_20220428140014.js:68
+#: admin/src/ServiceInfo/Credits_20220428140048.js:64
+#: admin/src/ServiceInfo/Credits_20220428140048.js:68
+msgid "Messages"
+msgstr "پیام"
+
+#: admin/src/ServiceInfo/Credits_20220421131413.js:77
+#: admin/src/ServiceInfo/Credits_20220428140014.js:77
+#: admin/src/ServiceInfo/Credits_20220428140048.js:77
+msgid "The price to send SMS for Irancell equal is"
+msgstr "قیمت ارسال اس ام اس برای خطوط ایرانسل"
+
+#: admin/src/ServiceInfo/Credits_20220421131413.js:77
+#: admin/src/ServiceInfo/Credits_20220421131413.js:89
+#: admin/src/ServiceInfo/Credits_20220428140014.js:77
+#: admin/src/ServiceInfo/Credits_20220428140014.js:89
+#: admin/src/ServiceInfo/Credits_20220428140048.js:77
+#: admin/src/ServiceInfo/Credits_20220428140048.js:89
+msgid "T"
+msgstr "تومان"
+
+#: admin/src/ServiceInfo/Credits_20220421131413.js:81
+#: admin/src/ServiceInfo/Credits_20220421131413.js:93
+#: admin/src/ServiceInfo/Credits_20220428140014.js:81
+#: admin/src/ServiceInfo/Credits_20220428140014.js:93
+#: admin/src/ServiceInfo/Credits_20220428140048.js:81
+#: admin/src/ServiceInfo/Credits_20220428140048.js:93
+msgid ""
+"We are sorry, but we can't estimate the price. please login using the "
+"following form"
+msgstr ""
+"متسفانه امکان تخمین زدن قیمت وجود ندارد لطفا ابتدا با استفاده از فرم زیر "
+"وارد شوید"
+
+#: admin/src/ServiceInfo/Credits_20220421131413.js:89
+#: admin/src/ServiceInfo/Credits_20220428140014.js:89
+#: admin/src/ServiceInfo/Credits_20220428140048.js:89
+msgid "The price to send SMS for Hamrah Aval equal is"
+msgstr "قیمت ارسال اس ام اس برای خطوط همراه اول"
+
+#: admin/src/Tools/SendSMS/Send_20220428014746.js:36
+#: admin/src/Tools/SendSMS/Send_20220428135719.js:36
+#: admin/src/Tools/SendSMS/Send_20220428135732.js:36
+#: admin/src/Tools/SendSMS/Send_20220428140013.js:36
+#: admin/src/Tools/SendSMS/Send_20220428140048.js:36
+#: admin/src/Tools/SendSMSWebService/Send_20220428004814.js:45
+#: admin/src/Tools/SendSMSWebService/Send_20220428140014.js:45
+#: admin/src/Tools/SendSMSWebService/Send_20220428140048.js:45
+#, fuzzy
+msgid "Access denied"
+msgstr "دسترسی ندارید"
+
+#: admin/src/Tools/SendSMS/Send_20220428014746.js:37
+#: admin/src/Tools/SendSMS/Send_20220428135719.js:37
+#: admin/src/Tools/SendSMS/Send_20220428135732.js:37
+#: admin/src/Tools/SendSMS/Send_20220428140013.js:37
+#: admin/src/Tools/SendSMS/Send_20220428140048.js:37
+#: admin/src/Tools/SendSMSWebService/Send_20220428004814.js:46
+#: admin/src/Tools/SendSMSWebService/Send_20220428140014.js:46
+#: admin/src/Tools/SendSMSWebService/Send_20220428140048.js:46
+msgid "To enable this feature need a pro version <br/><a href=\""
+msgstr "برای فعال کردن این قابلیت نیاز به خرید ورژن پرو میباشد <br/><a href=\""
+
+#: admin/src/Tools/SendSMS/Send_20220428014746.js:65
+#: admin/src/Tools/SendSMS/Send_20220428135719.js:65
+#: admin/src/Tools/SendSMS/Send_20220428135732.js:65
+#: admin/src/Tools/SendSMS/Send_20220428140013.js:65
+#: admin/src/Tools/SendSMS/Send_20220428140048.js:65
+#: admin/src/Tools/SendSMSWebService/Send_20220428004814.js:98
+#: admin/src/Tools/SendSMSWebService/Send_20220428140014.js:98
+#: admin/src/Tools/SendSMSWebService/Send_20220428140048.js:98
+msgid "Username or password is incorrect."
+msgstr "نام کاربری و کلمه عبور اشتباه است"
+
+#: admin/src/Tools/SendSMS/Send_20220428014746.js:68
+#: admin/src/Tools/SendSMS/Send_20220428135719.js:68
+#: admin/src/Tools/SendSMS/Send_20220428135732.js:68
+#: admin/src/Tools/SendSMS/Send_20220428140013.js:68
+#: admin/src/Tools/SendSMS/Send_20220428140048.js:68
+msgid "The request was completed successfully."
+msgstr "درخواست با موفقیت تکمیل شد."
+
+#: admin/src/Tools/SendSMS/Send_20220428014746.js:71
+#: admin/src/Tools/SendSMS/Send_20220428135719.js:71
+#: admin/src/Tools/SendSMS/Send_20220428135732.js:71
+#: admin/src/Tools/SendSMS/Send_20220428140013.js:71
+#: admin/src/Tools/SendSMS/Send_20220428140048.js:71
+#: admin/src/Tools/SendSMSWebService/Send_20220428004814.js:101
+#: admin/src/Tools/SendSMSWebService/Send_20220428140014.js:101
+#: admin/src/Tools/SendSMSWebService/Send_20220428140048.js:101
+msgid "Credit is not enough."
+msgstr "اعتبار کافی نیست"
+
+#: admin/src/Tools/SendSMS/Send_20220428014746.js:74
+#: admin/src/Tools/SendSMS/Send_20220428135719.js:74
+#: admin/src/Tools/SendSMS/Send_20220428135732.js:74
+#: admin/src/Tools/SendSMS/Send_20220428140013.js:74
+#: admin/src/Tools/SendSMS/Send_20220428140048.js:74
+msgid "Restrictions on daily submissions."
+msgstr "محدودیت در ارسال روزانه"
+
+#: admin/src/Tools/SendSMS/Send_20220428014746.js:77
+#: admin/src/Tools/SendSMS/Send_20220428135719.js:77
+#: admin/src/Tools/SendSMS/Send_20220428135732.js:77
+#: admin/src/Tools/SendSMS/Send_20220428140013.js:77
+#: admin/src/Tools/SendSMS/Send_20220428140048.js:77
+msgid "Limitation on posting volume."
+msgstr "محدودیت در حجم ارسال"
+
+#: admin/src/Tools/SendSMS/Send_20220428014746.js:80
+#: admin/src/Tools/SendSMS/Send_20220428135719.js:80
+#: admin/src/Tools/SendSMS/Send_20220428135732.js:80
+#: admin/src/Tools/SendSMS/Send_20220428140013.js:80
+#: admin/src/Tools/SendSMS/Send_20220428140048.js:80
+msgid "Sender number is not valid."
+msgstr "شماره فرستنده معتبر نیست"
+
+#: admin/src/Tools/SendSMS/Send_20220428014746.js:83
+#: admin/src/Tools/SendSMS/Send_20220428135719.js:83
+#: admin/src/Tools/SendSMS/Send_20220428135732.js:83
+#: admin/src/Tools/SendSMS/Send_20220428140013.js:83
+#: admin/src/Tools/SendSMS/Send_20220428140048.js:83
+#: admin/src/Tools/SendSMSWebService/Send_20220428004814.js:104
+#: admin/src/Tools/SendSMSWebService/Send_20220428140014.js:104
+#: admin/src/Tools/SendSMSWebService/Send_20220428140048.js:104
+msgid "The system is being updated."
+msgstr "سیستم در حال به روز رسانی است."
+
+#: admin/src/Tools/SendSMS/Send_20220428014746.js:86
+#: admin/src/Tools/SendSMS/Send_20220428135719.js:86
+#: admin/src/Tools/SendSMS/Send_20220428135732.js:86
+#: admin/src/Tools/SendSMS/Send_20220428140013.js:86
+#: admin/src/Tools/SendSMS/Send_20220428140048.js:86
+#: admin/src/Tools/SendSMSWebService/Send_20220428004814.js:95
+#: admin/src/Tools/SendSMSWebService/Send_20220428140014.js:95
+#: admin/src/Tools/SendSMSWebService/Send_20220428140048.js:95
+msgid "The text contains the word filtered."
+msgstr "متن حاوی کلمه فیلتر شده است."
+
+#: admin/src/Tools/SendSMS/Send_20220428014746.js:89
+#: admin/src/Tools/SendSMS/Send_20220428135719.js:89
+#: admin/src/Tools/SendSMS/Send_20220428135732.js:89
+#: admin/src/Tools/SendSMS/Send_20220428140013.js:89
+#: admin/src/Tools/SendSMS/Send_20220428140048.js:89
+msgid "Sending from public lines through web service is not possible."
+msgstr "ارسال از خطوط عمومی از طریق وب سرویس امکان پذیر نیست."
+
+#: admin/src/Tools/SendSMS/Send_20220428014746.js:92
+#: admin/src/Tools/SendSMS/Send_20220428135719.js:92
+#: admin/src/Tools/SendSMS/Send_20220428135732.js:92
+#: admin/src/Tools/SendSMS/Send_20220428140013.js:92
+#: admin/src/Tools/SendSMS/Send_20220428140048.js:92
+msgid "The user is not active."
+msgstr "کاربر فعال نیست"
+
+#: admin/src/Tools/SendSMS/Send_20220428014746.js:95
+#: admin/src/Tools/SendSMS/Send_20220428135719.js:95
+#: admin/src/Tools/SendSMS/Send_20220428135732.js:95
+#: admin/src/Tools/SendSMS/Send_20220428140013.js:95
+#: admin/src/Tools/SendSMS/Send_20220428140048.js:95
+msgid "Not sent."
+msgstr "ارسال نشد."
+
+#: admin/src/Tools/SendSMS/Send_20220428014746.js:98
+#: admin/src/Tools/SendSMS/Send_20220428135719.js:98
+#: admin/src/Tools/SendSMS/Send_20220428135732.js:98
+#: admin/src/Tools/SendSMS/Send_20220428140013.js:98
+#: admin/src/Tools/SendSMS/Send_20220428140048.js:98
+#: admin/src/Tools/SendSMSWebService/Send_20220428004814.js:116
+#: admin/src/Tools/SendSMSWebService/Send_20220428140014.js:116
+#: admin/src/Tools/SendSMSWebService/Send_20220428140048.js:116
+msgid "User authentication are not complete."
+msgstr "احراز هویت کاربر انجام نشده است"
+
+#: admin/src/Tools/SendSMS/Send_20220428014746.js:101
+#: admin/src/Tools/SendSMS/Send_20220428135719.js:101
+#: admin/src/Tools/SendSMS/Send_20220428135732.js:101
+#: admin/src/Tools/SendSMS/Send_20220428140013.js:101
+#: admin/src/Tools/SendSMS/Send_20220428140048.js:101
+#: admin/src/Tools/SendSMSWebService/Send_20220428004814.js:119
+#: admin/src/Tools/SendSMSWebService/Send_20220428140014.js:119
+#: admin/src/Tools/SendSMSWebService/Send_20220428140048.js:119
+msgid "SMS successfully sent."
+msgstr "اس ام اس با موفقیت ارسال شد"
+
+#: admin/src/Tools/SendSMS/Send_20220428014746.js:142
+#: admin/src/Tools/SendSMS/Send_20220428135719.js:142
+#: admin/src/Tools/SendSMS/Send_20220428135732.js:142
+#: admin/src/Tools/SendSMS/Send_20220428140013.js:142
+#: admin/src/Tools/SendSMS/Send_20220428140048.js:142
+#: admin/src/Tools/SendSMSWebService/Send_20220428004814.js:162
+#: admin/src/Tools/SendSMSWebService/Send_20220428140014.js:162
+#: admin/src/Tools/SendSMSWebService/Send_20220428140048.js:162
+msgid "Report the status of sending messages."
+msgstr "گزارش وضعیت ارسال پیام."
+
+#: admin/src/Tools/SendSMS/Send_20220428014746.js:153
+#: admin/src/Tools/SendSMS/Send_20220428135719.js:153
+#: admin/src/Tools/SendSMS/Send_20220428135732.js:153
+#: admin/src/Tools/SendSMS/Send_20220428140013.js:153
+#: admin/src/Tools/SendSMS/Send_20220428140048.js:153
+#: admin/src/Tools/SendSMSWebService/Send_20220428004814.js:173
+#: admin/src/Tools/SendSMSWebService/Send_20220428140014.js:173
+#: admin/src/Tools/SendSMSWebService/Send_20220428140048.js:173
+msgid "OK"
+msgstr "باشه"
+
+#: admin/src/Tools/SendSMS/Send_20220428014746.js:172
+#: admin/src/Tools/SendSMS/Send_20220428135719.js:172
+#: admin/src/Tools/SendSMS/Send_20220428135732.js:172
+#: admin/src/Tools/SendSMS/Send_20220428140013.js:172
+#: admin/src/Tools/SendSMS/Send_20220428140048.js:172
+#: admin/src/Tools/SendSMSWebService/Send_20220428004814.js:192
+#: admin/src/Tools/SendSMSWebService/Send_20220428140014.js:192
+#: admin/src/Tools/SendSMSWebService/Send_20220428140048.js:192
+msgid "Select the source of phone numbers"
+msgstr "منبع شماره تلفن ها را انتخاب کنید"
+
+#: admin/src/Tools/SendSMS/Send_20220428014746.js:174
+#: admin/src/Tools/SendSMS/Send_20220428135719.js:174
+#: admin/src/Tools/SendSMS/Send_20220428135732.js:174
+#: admin/src/Tools/SendSMS/Send_20220428140013.js:174
+#: admin/src/Tools/SendSMS/Send_20220428140048.js:174
+#: admin/src/Tools/SendSMSWebService/Send_20220428004814.js:194
+#: admin/src/Tools/SendSMSWebService/Send_20220428140014.js:194
+#: admin/src/Tools/SendSMSWebService/Send_20220428140048.js:194
+msgid "Custom Numbers"
+msgstr "شماره های سفارشی"
+
+#: admin/src/Tools/SendSMS/Send_20220428014746.js:175
+#: admin/src/Tools/SendSMS/Send_20220428135719.js:175
+#: admin/src/Tools/SendSMS/Send_20220428135732.js:175
+#: admin/src/Tools/SendSMS/Send_20220428140013.js:175
+#: admin/src/Tools/SendSMS/Send_20220428140048.js:175
+#: admin/src/Tools/SendSMSWebService/Send_20220428004814.js:195
+#: admin/src/Tools/SendSMSWebService/Send_20220428140014.js:195
+#: admin/src/Tools/SendSMSWebService/Send_20220428140048.js:195
+msgid "Woocommerce Numbers"
+msgstr "شماره های ووکامرس"
+
+#: admin/src/Tools/SendSMS/Send_20220428014746.js:175
+#: admin/src/Tools/SendSMS/Send_20220428135719.js:175
+#: admin/src/Tools/SendSMS/Send_20220428135732.js:175
+#: admin/src/Tools/SendSMS/Send_20220428140013.js:175
+#: admin/src/Tools/SendSMS/Send_20220428140048.js:175
+#: admin/src/Tools/index_20220425011207.js:24
+#: admin/src/Tools/index_20220428140014.js:24
+#: admin/src/Tools/index_20220428140048.js:24
+msgid "Pro "
+msgstr "ورژن پرو"
+
+#: admin/src/Tools/SendSMS/Send_20220428014746.js:184
+#: admin/src/Tools/SendSMS/Send_20220428135719.js:184
+#: admin/src/Tools/SendSMS/Send_20220428135732.js:184
+#: admin/src/Tools/SendSMS/Send_20220428140013.js:184
+#: admin/src/Tools/SendSMS/Send_20220428140048.js:184
+#: admin/src/Tools/SendSMSWebService/Send_20220428004814.js:204
+#: admin/src/Tools/SendSMSWebService/Send_20220428140014.js:204
+#: admin/src/Tools/SendSMSWebService/Send_20220428140048.js:204
+msgid "You can only send 100 SMS per time. ( separate the numbers with \",\" )"
+msgstr "هر بار فقط می توانید 100 پیامک ارسال کنید. (اعداد را با \"\" جدا کنید)"
+
+#: admin/src/Tools/SendSMS/Send_20220428014746.js:184
+#: admin/src/Tools/SendSMS/Send_20220428135719.js:184
+#: admin/src/Tools/SendSMS/Send_20220428135732.js:184
+#: admin/src/Tools/SendSMS/Send_20220428140013.js:184
+#: admin/src/Tools/SendSMS/Send_20220428140048.js:184
+#: admin/src/Tools/SendSMSWebService/Send_20220428004814.js:205
+#: admin/src/Tools/SendSMSWebService/Send_20220428140014.js:205
+#: admin/src/Tools/SendSMSWebService/Send_20220428140048.js:205
+msgid "Phone Number"
+msgstr "شماره تلفن"
+
+#: admin/src/Tools/SendSMS/Send_20220428014746.js:184
+#: admin/src/Tools/SendSMS/Send_20220428135719.js:184
+#: admin/src/Tools/SendSMS/Send_20220428135732.js:184
+#: admin/src/Tools/SendSMS/Send_20220428140013.js:184
+#: admin/src/Tools/SendSMS/Send_20220428140048.js:184
+#: admin/src/Tools/SendSMSWebService/Send_20220428004814.js:205
+#: admin/src/Tools/SendSMSWebService/Send_20220428140014.js:205
+#: admin/src/Tools/SendSMSWebService/Send_20220428140048.js:205
+msgid "Please input mobile phone number"
+msgstr "لطفا شماره تلفن همراه را وارد کنید"
+
+#: admin/src/Tools/SendSMS/Send_20220428014746.js:185
+#: admin/src/Tools/SendSMS/Send_20220428135719.js:185
+#: admin/src/Tools/SendSMS/Send_20220428135732.js:185
+#: admin/src/Tools/SendSMS/Send_20220428140013.js:185
+#: admin/src/Tools/SendSMS/Send_20220428140048.js:185
+#: admin/src/Tools/SendSMSWebService/Send_20220428004814.js:206
+#: admin/src/Tools/SendSMSWebService/Send_20220428140014.js:206
+#: admin/src/Tools/SendSMSWebService/Send_20220428140048.js:206
+msgid "0912xxxx or 0912xxx,0935xxx,0919xxx"
+msgstr "0912xxxx or 0912xxx,0935xxx,0919xxx"
+
+#: admin/src/Tools/SendSMS/Send_20220428014746.js:191
+#: admin/src/Tools/SendSMS/Send_20220428135719.js:191
+#: admin/src/Tools/SendSMS/Send_20220428135732.js:191
+#: admin/src/Tools/SendSMS/Send_20220428140013.js:191
+#: admin/src/Tools/SendSMS/Send_20220428140048.js:191
+msgid "SMS Content"
+msgstr "متن اس ام اس"
+
+#: admin/src/Tools/SendSMS/Send_20220428014746.js:191
+#: admin/src/Tools/SendSMS/Send_20220428135719.js:191
+#: admin/src/Tools/SendSMS/Send_20220428135732.js:191
+#: admin/src/Tools/SendSMS/Send_20220428140013.js:191
+#: admin/src/Tools/SendSMS/Send_20220428140048.js:191
+msgid "Please input SMS Content"
+msgstr "لطفا متن اس ام اس را وارد کنید"
+
+#: admin/src/Tools/SendSMS/Send_20220428014746.js:192
+#: admin/src/Tools/SendSMS/Send_20220428135719.js:192
+#: admin/src/Tools/SendSMS/Send_20220428135732.js:192
+#: admin/src/Tools/SendSMS/Send_20220428140013.js:192
+#: admin/src/Tools/SendSMS/Send_20220428140048.js:192
+msgid "The SMS Content"
+msgstr "متن اس ام اس"
+
+#: admin/src/Tools/SendSMS/Send_20220428014746.js:201
+#: admin/src/Tools/SendSMS/Send_20220428135719.js:201
+#: admin/src/Tools/SendSMS/Send_20220428135732.js:201
+#: admin/src/Tools/SendSMS/Send_20220428140013.js:201
+#: admin/src/Tools/SendSMS/Send_20220428140048.js:201
+#: admin/src/Tools/SendSMSWebService/Send_20220428004814.js:229
+#: admin/src/Tools/SendSMSWebService/Send_20220428140014.js:229
+#: admin/src/Tools/SendSMSWebService/Send_20220428140048.js:229
+#: admin/src/Tools/Settings/index_20220421131842.js:83
+#: admin/src/Tools/Settings/index_20220428140014.js:83
+#: admin/src/Tools/Settings/index_20220428140048.js:83
+msgid "Submit"
+msgstr "ارسال"
+
+#: admin/src/Tools/SendSMS/Send_20220428014746.js:201
+#: admin/src/Tools/SendSMS/Send_20220428135719.js:201
+#: admin/src/Tools/SendSMS/Send_20220428135732.js:201
+#: admin/src/Tools/SendSMS/Send_20220428140013.js:201
+#: admin/src/Tools/SendSMS/Send_20220428140048.js:201
+#: admin/src/Tools/SendSMSWebService/Send_20220428004814.js:229
+#: admin/src/Tools/SendSMSWebService/Send_20220428140014.js:229
+#: admin/src/Tools/SendSMSWebService/Send_20220428140048.js:229
+msgid "SEND"
+msgstr "ارسال"
+
+#: admin/src/Tools/SendSMS/index_20220425005035.js:12
+#: admin/src/Tools/SendSMS/index_20220428140014.js:12
+#: admin/src/Tools/SendSMS/index_20220428140048.js:12
+#: admin/src/Tools/index_20220425011207.js:21
+#: admin/src/Tools/index_20220428140014.js:21
+#: admin/src/Tools/index_20220428140048.js:21
+msgid "Send SMS"
+msgstr "ارسال اس ام اس"
+
+#: admin/src/Tools/SendSMSWebService/Send_20220428004814.js:74
+#: admin/src/Tools/SendSMSWebService/Send_20220428140014.js:74
+#: admin/src/Tools/SendSMSWebService/Send_20220428140048.js:74
+msgid ""
+"An error has occurred in the sender number. Contact MeliPayamak support."
+msgstr "خطایی در شماره فرستنده رخ داده است. با پشتیبانی ملی پیامک تماس بگیرید."
+
+#: admin/src/Tools/SendSMSWebService/Send_20220428004814.js:77
+#: admin/src/Tools/SendSMSWebService/Send_20220428140014.js:77
+#: admin/src/Tools/SendSMSWebService/Send_20220428140048.js:77
+msgid "Internal error occurred Contact MeliPayamak support."
+msgstr "خطای داخلی روی داد با پشتیبانی ملیپیامک تماس بگیرید."
+
+#: admin/src/Tools/SendSMSWebService/Send_20220428004814.js:80
+#: admin/src/Tools/SendSMSWebService/Send_20220428140014.js:80
+#: admin/src/Tools/SendSMSWebService/Send_20220428140048.js:80
+msgid ""
+"The submitted text does not match the specified params in the default text."
+msgstr "متن ارسالی با پارامترهای مشخص شده در متن پیش فرض مطابقت ندارد."
+
+#: admin/src/Tools/SendSMSWebService/Send_20220428004814.js:83
+#: admin/src/Tools/SendSMSWebService/Send_20220428140014.js:83
+#: admin/src/Tools/SendSMSWebService/Send_20220428140048.js:83
+msgid ""
+"The submitted text code is incorrect or has not been verified by the system "
+"administrator."
+msgstr "کد متنی ارسالی نادرست است یا توسط مدیر سیستم تایید نشده است."
+
+#: admin/src/Tools/SendSMSWebService/Send_20220428004814.js:86
+#: admin/src/Tools/SendSMSWebService/Send_20220428140014.js:86
+#: admin/src/Tools/SendSMSWebService/Send_20220428140048.js:86
+msgid ""
+"The line sent is not defined in the system, contact the system MeliPayamak "
+"support."
+msgstr ""
+"خط ارسال شده در سامانه تعریف نشده است، با پشتیبانی سامانه ملی پیامک تماس "
+"بگیرید."
+
+#: admin/src/Tools/SendSMSWebService/Send_20220428004814.js:89
+#: admin/src/Tools/SendSMSWebService/Send_20220428140014.js:89
+#: admin/src/Tools/SendSMSWebService/Send_20220428140048.js:89
+msgid "Number limit is the limit each time you send a mobile number."
+msgstr ""
+"محدودیت شماره، محدودیتی است که برای هر بار ارسال شماره تلفن همراه وجود دارد."
+
+#: admin/src/Tools/SendSMSWebService/Send_20220428004814.js:92
+#: admin/src/Tools/SendSMSWebService/Send_20220428140014.js:92
+#: admin/src/Tools/SendSMSWebService/Send_20220428140048.js:92
+msgid "Access to this web service is disabled. Contact MeliPayamak support."
+msgstr "دسترسی به این وب سرویس غیرفعال است. با پشتیبانی ملی پیامک تماس بگیرید."
+
+#: admin/src/Tools/SendSMSWebService/Send_20220428004814.js:107
+#: admin/src/Tools/SendSMSWebService/Send_20220428140014.js:107
+#: admin/src/Tools/SendSMSWebService/Send_20220428140048.js:107
+msgid "The text contains the filtered word, Contact MeliPayamak support."
+msgstr "متن حاوی کلمه فیلتر شده، تماس با پشتیبانی ملی پیامک است."
+
+#: admin/src/Tools/SendSMSWebService/Send_20220428004814.js:110
+#: admin/src/Tools/SendSMSWebService/Send_20220428140014.js:110
+#: admin/src/Tools/SendSMSWebService/Send_20220428140048.js:110
+msgid "The intended user is not active."
+msgstr "کاربر مورد نظر فعال نیست."
+
+#: admin/src/Tools/SendSMSWebService/Send_20220428004814.js:113
+#: admin/src/Tools/SendSMSWebService/Send_20220428140014.js:113
+#: admin/src/Tools/SendSMSWebService/Send_20220428140048.js:113
+msgid "Not Send."
+msgstr "ار سال نشد."
+
+#: admin/src/Tools/SendSMSWebService/Send_20220428004814.js:212
+#: admin/src/Tools/SendSMSWebService/Send_20220428140014.js:212
+#: admin/src/Tools/SendSMSWebService/Send_20220428140048.js:212
+msgid "Select a pattern to send"
+msgstr "یک الگو را برای ارسال انتخاب کنید"
+
+#: admin/src/Tools/SendSMSWebService/Send_20220428004814.js:212
+#: admin/src/Tools/SendSMSWebService/Send_20220428140014.js:212
+#: admin/src/Tools/SendSMSWebService/Send_20220428140048.js:212
+msgid "Please select a pattern"
+msgstr "لطفا یک الگو انتخاب کنید"
+
+#: admin/src/Tools/SendSMSWebService/Send_20220428004814.js:218
+#: admin/src/Tools/SendSMSWebService/Send_20220428140014.js:218
+#: admin/src/Tools/SendSMSWebService/Send_20220428140048.js:218
+msgid ""
+"Also can use nickname, first_name and last_name for params when selecting "
+"WooCommerce Numbers"
+msgstr ""
+"همچنین می توانید از nickname، first_name و last_name برای پارامترها هنگام "
+"انتخاب شماره های WooCommerce استفاده کنید."
+
+#: admin/src/Tools/SendSMSWebService/Send_20220428004814.js:218
+#: admin/src/Tools/SendSMSWebService/Send_20220428140014.js:218
+#: admin/src/Tools/SendSMSWebService/Send_20220428140048.js:218
+msgid "separate the parms with \",\". ( Example: param1,param2,param3 )"
+msgstr "قسمت ها را با \"،\" جدا کنید. (مثال: param1,param2,param3)"
+
+#: admin/src/Tools/SendSMSWebService/Send_20220428004814.js:219
+#: admin/src/Tools/SendSMSWebService/Send_20220428140014.js:219
+#: admin/src/Tools/SendSMSWebService/Send_20220428140048.js:219
+msgid "Pattern params"
+msgstr "پارامترهای الگو"
+
+#: admin/src/Tools/SendSMSWebService/Send_20220428004814.js:219
+#: admin/src/Tools/SendSMSWebService/Send_20220428140014.js:219
+#: admin/src/Tools/SendSMSWebService/Send_20220428140048.js:219
+msgid "Please input pattern params"
+msgstr "لطفا پارامترهای الگو را وارد کنید"
+
+#: admin/src/Tools/SendSMSWebService/Send_20220428004814.js:220
+#: admin/src/Tools/SendSMSWebService/Send_20220428140014.js:220
+#: admin/src/Tools/SendSMSWebService/Send_20220428140048.js:220
+msgid "param1 or param1,param2,param3x"
+msgstr "param1 یا param1,param2,param3x"
+
+#: admin/src/Tools/SendSMSWebService/index_20220425010418.js:12
+#: admin/src/Tools/SendSMSWebService/index_20220428135841.js:12
+#: admin/src/Tools/SendSMSWebService/index_20220428140014.js:12
+#: admin/src/Tools/SendSMSWebService/index_20220428140048.js:12
+#: admin/src/Tools/SendSMSWebService/index_20220428140054.js:12
+msgid "Send SMS Using Web Services"
+msgstr "ارسال اس ام اس با استفاده از خدمات وب"
+
+#: admin/src/Tools/Settings/index_20220421131842.js:69
+#: admin/src/Tools/Settings/index_20220428140014.js:69
+#: admin/src/Tools/Settings/index_20220428140048.js:69
+msgid "Username"
+msgstr "نام کاربری"
+
+#: admin/src/Tools/Settings/index_20220421131842.js:69
+#: admin/src/Tools/Settings/index_20220428140014.js:69
+#: admin/src/Tools/Settings/index_20220428140048.js:69
+msgid "Please input your username!"
+msgstr "لطفا نام کاربری خود را وارد کنید"
+
+#: admin/src/Tools/Settings/index_20220421131842.js:73
+#: admin/src/Tools/Settings/index_20220428140014.js:73
+#: admin/src/Tools/Settings/index_20220428140048.js:73
+msgid "Password"
+msgstr "رمز عبور"
+
+#: admin/src/Tools/Settings/index_20220421131842.js:73
+#: admin/src/Tools/Settings/index_20220428140014.js:73
+#: admin/src/Tools/Settings/index_20220428140048.js:73
+msgid "Please input your password!"
+msgstr "لطفا رمز عبور خود را وارد کنید"
+
+#: admin/src/Tools/Settings/index_20220421131842.js:83
+#: admin/src/Tools/Settings/index_20220428140014.js:83
+#: admin/src/Tools/Settings/index_20220428140048.js:83
+msgid "Update"
+msgstr "بروز رسانی"
+
+#: admin/src/Tools/index_20220425011207.js:16
+#: admin/src/Tools/index_20220428140014.js:16
+#: admin/src/Tools/index_20220428140048.js:16
+msgid "Tools"
+msgstr "ابزارها"
+
+#: admin/src/Tools/index_20220425011207.js:18
+#: admin/src/Tools/index_20220428140014.js:18
+#: admin/src/Tools/index_20220428140048.js:18
+msgid "Login"
+msgstr "وارد شوید"
+
+#: admin/src/Tools/index_20220425011207.js:24
+#: admin/src/Tools/index_20220428140014.js:24
+#: admin/src/Tools/index_20220428140048.js:24
+msgid "Send SMS ( Web Service )"
+msgstr "ارسال اس ام اس ( وب سرویس خدماتی)"
 
 #: classes/API.php:355 classes/API.php:407
 msgid "Access denied."
@@ -56,7 +616,7 @@ msgstr "اس ام اس ملی پیامک"
 #. Plugin URI of the plugin/theme
 #. Author URI of the plugin/theme
 msgid "https://www.awecodebox.com/"
-msgstr ""
+msgstr "https://www.awecodebox.com/"
 
 #. Description of the plugin/theme
 msgid "It will send sms using meli payamak webservice."

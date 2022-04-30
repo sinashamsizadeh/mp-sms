@@ -42,8 +42,8 @@ const SendByWebService = () => {
 
 			notification.error({
 				placement: 'bottomRight',
-				message: __( 'Access denied', mp_sms_localize.text_domain ),
-				description: Parser( __( 'To enable this feature need a pro version <br/><a href="' + mp_sms_localize.purchase + '" target="_blank"><b style="color: #fff; background: #000; padding: 3px 11px; display: inline-block; margin-top: 8px; border-radius: 3px;">Go Pro</b></a>', mp_sms_localize.text_domain ) ),
+				message: __( 'Access denied', 'mp-sms' ),
+				description: Parser( __( 'To enable this feature need a pro version <br/><a href="' + mp_sms_localize.purchase + '" target="_blank"><b style="color: #fff; background: #000; padding: 3px 11px; display: inline-block; margin-top: 8px; border-radius: 3px;">Go Pro</b></a>', 'mp-sms' ) ),
 			});
 
 			setOptions({
@@ -71,52 +71,52 @@ const SendByWebService = () => {
 					
 					if ( res.data.string[i] == '-7' ) {
 
-						message =  __( 'An error has occurred in the sender number. Contact MeliPayamak support.', mp_sms_localize.text_domain );
+						message =  __( 'An error has occurred in the sender number. Contact MeliPayamak support.', 'mp-sms' );
 					} else if ( res.data.string[i] == '-6' ) {
 		
-						message =  __( 'Internal error occurred Contact MeliPayamak support.', mp_sms_localize.text_domain );
+						message =  __( 'Internal error occurred Contact MeliPayamak support.', 'mp-sms' );
 					} else if ( res.data.string[i] == '-5' ) {
 		
-						message =  __( 'The submitted text does not match the specified params in the default text.', mp_sms_localize.text_domain );
+						message =  __( 'The submitted text does not match the specified params in the default text.', 'mp-sms' );
 					} else if ( res.data.string[i] == '-4' ) {
 		
-						message =  __( 'The submitted text code is incorrect or has not been verified by the system administrator.', mp_sms_localize.text_domain );
+						message =  __( 'The submitted text code is incorrect or has not been verified by the system administrator.', 'mp-sms' );
 					}  else if ( res.data.string[i] == '-3' ) {
 		
-						message =  __( 'The line sent is not defined in the system, contact the system MeliPayamak support.', mp_sms_localize.text_domain );
+						message =  __( 'The line sent is not defined in the system, contact the system MeliPayamak support.', 'mp-sms' );
 					} else if ( res.data.string[i] == '-2' ) {
 		
-						message =  __( 'Number limit is the limit each time you send a mobile number.', mp_sms_localize.text_domain );
+						message =  __( 'Number limit is the limit each time you send a mobile number.', 'mp-sms' );
 					} else if ( res.data.string[i] == '-1' ) {
 		
-						message =  __( 'Access to this web service is disabled. Contact MeliPayamak support.', mp_sms_localize.text_domain );
+						message =  __( 'Access to this web service is disabled. Contact MeliPayamak support.', 'mp-sms' );
 					} else if ( res.data.string[i] == '-1' ) {
 		
-						message =  __( 'The text contains the word filtered.', mp_sms_localize.text_domain );
+						message =  __( 'The text contains the word filtered.', 'mp-sms' );
 					} else if ( res.data.string[i] == '0' ) {
 		
-						message =  __( 'Username or password is incorrect.', mp_sms_localize.text_domain );
+						message =  __( 'Username or password is incorrect.', 'mp-sms' );
 					} else if ( res.data.string[i] == '2' ) {
 		
-						message =  __( 'Credit is not enough.', mp_sms_localize.text_domain );
+						message =  __( 'Credit is not enough.', 'mp-sms' );
 					} else if ( res.data.string[i] == '6' ) {
 						
-						message =  __( 'The system is being updated.', mp_sms_localize.text_domain );
+						message =  __( 'The system is being updated.', 'mp-sms' );
 					} else if ( res.data.string[i] == '7' ) {
 						
-						message =  __( 'The text contains the filtered word, Contact MeliPayamak support.', mp_sms_localize.text_domain );
+						message =  __( 'The text contains the filtered word, Contact MeliPayamak support.', 'mp-sms' );
 					} else if ( res.data.string[i] == '10' ) {
 						
-						message =  __( 'The intended user is not active.', mp_sms_localize.text_domain );
+						message =  __( 'The intended user is not active.', 'mp-sms' );
 					} else if ( res.data.string[i] == '11' ) {
 						
-						message =  __( 'Not Send.', mp_sms_localize.text_domain );
+						message =  __( 'Not Send.', 'mp-sms' );
 					} else if ( res.data.string[i] == '12' ) {
 						
-						message =  __( 'User authentication are not complete.', mp_sms_localize.text_domain );
+						message =  __( 'User authentication are not complete.', 'mp-sms' );
 					} else {
 						
-						message = __( 'SMS successfully sent.', mp_sms_localize.text_domain );
+						message = __( 'SMS successfully sent.', 'mp-sms' );
 					}
 					
 					result.push(<p key={res.data.numbers[i]}>{res.data.numbers[i]} : {message}</p>) ;
@@ -159,7 +159,7 @@ const SendByWebService = () => {
 	return (
 		<Row>
 			<Modal
-				title={ __( 'Report the status of sending messages.', mp_sms_localize.text_domain ) }
+				title={ __( 'Report the status of sending messages.', 'mp-sms' ) }
 				centered
 				visible={options.send}
 				width={768}
@@ -170,7 +170,7 @@ const SendByWebService = () => {
 						numtype : 'custom_users_webservice',
 						send : false
 					})}>
-						{ __( 'OK', mp_sms_localize.text_domain ) }
+						{ __( 'OK', 'mp-sms' ) }
 					</Button>,
 				]}
 			>
@@ -189,10 +189,10 @@ const SendByWebService = () => {
 				autoComplete="off"
 				>
 
-					<Form.Item label={ __( 'Select the source of phone numbers', mp_sms_localize.text_domain ) } name="numbers_type">
+					<Form.Item label={ __( 'Select the source of phone numbers', 'mp-sms' ) } name="numbers_type">
 						<Select size="large" allowClear>
-							<Option value="custom_users_webservice">{ __( 'Custom Numbers', mp_sms_localize.text_domain ) }</Option>
-							<Option value="woo_users_webservice">{ __( 'Woocommerce Numbers', mp_sms_localize.text_domain ) }</Option>
+							<Option value="custom_users_webservice">{ __( 'Custom Numbers', 'mp-sms' ) }</Option>
+							<Option value="woo_users_webservice">{ __( 'Woocommerce Numbers', 'mp-sms' ) }</Option>
 						</Select>
 					</Form.Item>
 
@@ -201,23 +201,23 @@ const SendByWebService = () => {
 					>
 						{({ getFieldValue }) =>
 							getFieldValue('numbers_type') === 'custom_users_webservice' ? (
-								<Form.Item name="custom_users_webservice" label={<Tooltip overlayInnerStyle={{width:'450px'}} title={ __( 'You can only send 100 SMS per time. ( separate the numbers with "," )', mp_sms_localize.text_domain ) } placement="right" >
-									{ __( 'Phone Number', mp_sms_localize.text_domain )  }<QuestionCircleOutlined style={{marginLeft:'8px'}}/> </Tooltip>} rules={[{ required: true, message: __( 'Please input mobile phone number', mp_sms_localize.text_domain ) }]} >
-									<TextArea rows={4} placeholder={ __( '0912xxxx or 0912xxx,0935xxx,0919xxx', mp_sms_localize.text_domain ) } showCount maxLength={199} />
+								<Form.Item name="custom_users_webservice" label={<Tooltip overlayInnerStyle={{width:'450px'}} title={ __( 'You can only send 100 SMS per time. ( separate the numbers with "," )', 'mp-sms' ) } placement="right" >
+									{ __( 'Phone Number', 'mp-sms' )  }<QuestionCircleOutlined style={{marginLeft:'8px'}}/> </Tooltip>} rules={[{ required: true, message: __( 'Please input mobile phone number', 'mp-sms' ) }]} >
+									<TextArea rows={4} placeholder={ __( '0912xxxx or 0912xxx,0935xxx,0919xxx', 'mp-sms' ) } showCount maxLength={199} />
 								</Form.Item> 
 							) : null
 						}
 					</Form.Item>
 
-					<Form.Item label={ __( 'Select a pattern to send', mp_sms_localize.text_domain ) } name="pattern" rules={[{ required: true, message: __( 'Please select a pattern', mp_sms_localize.text_domain ) }]}>
+					<Form.Item label={ __( 'Select a pattern to send', 'mp-sms' ) } name="pattern" rules={[{ required: true, message: __( 'Please select a pattern', 'mp-sms' ) }]}>
 						<Select size="large" allowClear onChange={handleNumbersType}>
 							{patterns}
 						</Select>
 					</Form.Item>
 
-					<Form.Item name="patern_params" extra={ __( 'Also can use nickname, first_name and last_name for params when selecting WooCommerce Numbers', mp_sms_localize.text_domain ) } label={<Tooltip overlayInnerStyle={{width:'450px'}} title={ __( 'separate the parms with ",". ( Example: param1,param2,param3 )', mp_sms_localize.text_domain ) } placement="right" >
-						{ __( 'Pattern params', mp_sms_localize.text_domain )  }<QuestionCircleOutlined style={{marginLeft:'8px'}}/> </Tooltip>} rules={[{ required: true, message: __( 'Please input pattern params', mp_sms_localize.text_domain ) }]} >
-						<TextArea rows={1} placeholder={ __( 'param1 or param1,param2,param3x', mp_sms_localize.text_domain ) } showCount maxLength={199} />
+					<Form.Item name="patern_params" extra={ __( 'Also can use nickname, first_name and last_name for params when selecting WooCommerce Numbers', 'mp-sms' ) } label={<Tooltip overlayInnerStyle={{width:'450px'}} title={ __( 'separate the parms with ",". ( Example: param1,param2,param3 )', 'mp-sms' ) } placement="right" >
+						{ __( 'Pattern params', 'mp-sms' )  }<QuestionCircleOutlined style={{marginLeft:'8px'}}/> </Tooltip>} rules={[{ required: true, message: __( 'Please input pattern params', 'mp-sms' ) }]} >
+						<TextArea rows={1} placeholder={ __( 'param1 or param1,param2,param3x', 'mp-sms' ) } showCount maxLength={199} />
 					</Form.Item> 
 
 					<Form.Item>
@@ -226,7 +226,7 @@ const SendByWebService = () => {
 						htmlType="submit"
 						loading={options.loading}
 						>
-							{  mp_sms_localize.verified == 'false' ? __( 'Submit', mp_sms_localize.text_domain ) : __( 'SEND', mp_sms_localize.text_domain ) }
+							{  mp_sms_localize.verified == 'false' ? __( 'Submit', 'mp-sms' ) : __( 'SEND', 'mp-sms' ) }
 						</Button>
 					</Form.Item>
 

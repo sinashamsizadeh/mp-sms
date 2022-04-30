@@ -97,8 +97,15 @@ if ( ! class_exists( 'AweCodBoxMP\Enqueue' ) ) {
 					'verified'		=>	$verified,
 					'admin_url'		=>	admin_url( 'admin.php?page=mp-sms' ),
 					'purchase'		=>	'https://awecodebox.com/plugins/mp-sms/pricing/',
-					'expandable'	=> apply_filters( SMS::$id . '_expandable', $expandable )
+					'expandable'	=> apply_filters( SMS::$id . '_expandable', $expandable ),
+					'direction'		=> is_rtl() ? 'rtl' : 'ltr'
 				] );
+
+				wp_set_script_translations( 
+					SMS::$slug . 'admin', 
+					SMS::$slug,
+					SMS::$dir . 'languages/'
+				);
 			}
 		}
 

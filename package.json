@@ -1,5 +1,6 @@
 {
-  "dependencies": {
-    "axios": "^0.26.1"
+  "devDependencies": {
+    "grunt": "^1.5.2",
+    "grunt-contrib-compress": "^2.0.0"
   }
 }

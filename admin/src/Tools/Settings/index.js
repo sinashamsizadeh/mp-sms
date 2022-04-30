@@ -66,11 +66,11 @@ const Settings = () => {
 				autoComplete="off"
 				>
 
-					<Form.Item label={ __( 'Username', mp_sms_localize.text_domain ) } name="username" rules={[{ required: true, message: __( 'Please input your username!', mp_sms_localize.text_domain ) }]} >
+					<Form.Item label={ __( 'Username', 'mp-sms' ) } name="username" rules={[{ required: true, message: __( 'Please input your username!', 'mp-sms' ) }]} >
 						<Input size="large"  addonBefore={<UserOutlined />} />
 					</Form.Item>
 
-					<Form.Item label={ __( 'Password', mp_sms_localize.text_domain ) } name="password" rules={[{ required: true, message: __( 'Please input your password!', mp_sms_localize.text_domain )  }]} >
+					<Form.Item label={ __( 'Password', 'mp-sms' ) } name="password" rules={[{ required: true, message: __( 'Please input your password!', 'mp-sms' )  }]} >
 						<Input.Password size="medium"  addonBefore={<LockOutlined />} />
 					</Form.Item>
 
@@ -80,7 +80,7 @@ const Settings = () => {
 						htmlType="submit"
 						loading={options.loading}
 						>
-							{  mp_sms_localize.verified == 'false' ? __( 'Submit', mp_sms_localize.text_domain ) : __( 'Update', mp_sms_localize.text_domain ) }
+							{  mp_sms_localize.verified == 'false' ? __( 'Submit', 'mp-sms' ) : __( 'Update', 'mp-sms' ) }
 						</Button>
 					</Form.Item>
 

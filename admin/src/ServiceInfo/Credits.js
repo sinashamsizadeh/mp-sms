@@ -43,29 +43,29 @@ const Credits = () => {
 
 	return (
 		<Col span={24} style={Styles.SectionWrapper}>
-			<h1 style={Styles.SectionTitle}>{ __( 'Service Info', mp_sms_localize.text_domain ) }</h1>
+			<h1 style={Styles.SectionTitle}>{ __( 'Service Info', 'mp-sms' ) }</h1>
 			<div className="service-info" style={Styles.SectionContent}>
 				<Row>
 					<Col span={12}>
 						{
 							credits.value != 0 ?
-							<Skeleton loading={credits.loading} active avatar> <CheckSquareOutlined style={{color: '#00cd1d', fontSize: '18px', marginRight: '8px'}} />
-								<span>{ __( 'Authorized', mp_sms_localize.text_domain ) } </span>
+							<Skeleton loading={credits.loading} active avatar> <CheckSquareOutlined style={mp_sms_localize.direction == 'ltr' ? Styles.Credits.Success : Styles.RTLCredits.Success} />
+								<span>{ __( 'Authorized', 'mp-sms' ) } </span>
 							</Skeleton>
 							:
-							<Skeleton loading={credits.loading} active avatar> <CloseSquareOutlined style={{color: '#cd0000', fontSize: '18px', marginRight: '8px'}} />
-								<span>{ __( 'Not authorized.', mp_sms_localize.text_domain ) }</span> <a href="#login" >{ __( 'Please login.', mp_sms_localize.text_domain ) }</a>
+							<Skeleton loading={credits.loading} active avatar> <CloseSquareOutlined style={mp_sms_localize.direction == 'ltr' ? Styles.Credits.Error : Styles.RTLCredits.Error} />
+								<span>{ __( 'Not authorized.', 'mp-sms' ) }</span> <a href="#login" >{ __( 'Please login.', 'mp-sms' ) }</a>
 							</Skeleton>
 						}
 						<Divider />
 						{
 							credits.value != 0 ?
-							<Skeleton loading={credits.loading} active avatar> <MailOutlined style={{color: '#00cd1d', fontSize: '18px', marginRight: '8px'}} />
-								<span>{ __( 'You can send ~', mp_sms_localize.text_domain ) } { `${credits.value}` } { __( 'Messages', mp_sms_localize.text_domain ) }</span>
+							<Skeleton loading={credits.loading} active avatar> <MailOutlined style={mp_sms_localize.direction == 'ltr' ? Styles.Credits.Success : Styles.RTLCredits.Success} />
+								<span>{ __( 'You can send ~', 'mp-sms' ) } { `${credits.value}` } { __( 'Messages', 'mp-sms' ) }</span>
 							</Skeleton>
 							:
-							<Skeleton loading={credits.loading} active avatar> <MailOutlined style={{color: '#cd0000', fontSize: '18px', marginRight: '8px'}} />
-								<span>{ __( 'You can send ~', mp_sms_localize.text_domain ) } { `${credits.value}` } { __( 'Messages', mp_sms_localize.text_domain ) }</span>
+							<Skeleton loading={credits.loading} active avatar> <MailOutlined style={mp_sms_localize.direction == 'ltr' ? Styles.Credits.Error : Styles.RTLCredits.Error} />
+								<span>{ __( 'You can send ~', 'mp-sms' ) } { `${credits.value}` } { __( 'Messages', 'mp-sms' ) }</span>
 							</Skeleton>
 						}
 						<Divider />
@@ -73,24 +73,24 @@ const Credits = () => {
 					<Col span={12}>
 						{
 							credits.mci != 0 ?
-							<Skeleton loading={credits.loading} active avatar> <DollarOutlined style={{color: '#00cd1d', fontSize: '18px', marginRight: '8px'}} />
-								<span>{ __( 'The price to send SMS for Irancell equal is', mp_sms_localize.text_domain ) } { `${credits.mci}` } { __( 'T', mp_sms_localize.text_domain ) }</span>
+							<Skeleton loading={credits.loading} active avatar> <DollarOutlined style={mp_sms_localize.direction == 'ltr' ? Styles.Credits.Success : Styles.RTLCredits.Success} />
+								<span>{ __( 'The price to send SMS for Irancell equal is', 'mp-sms' ) } { `${credits.mci}` } { __( 'T', 'mp-sms' ) }</span>
 							</Skeleton>
 							:
-							<Skeleton loading={credits.loading} active avatar> <CloseSquareOutlined style={{color: '#cd0000', fontSize: '18px', marginRight: '8px'}} />
-								<span>{ __( 'We are sorry, but we can\'t estimate the price. please login using the following form', mp_sms_localize.text_domain ) }</span>
+							<Skeleton loading={credits.loading} active avatar> <CloseSquareOutlined style={mp_sms_localize.direction == 'ltr' ? Styles.Credits.Error : Styles.RTLCredits.Error} />
+								<span>{ __( 'We are sorry, but we can\'t estimate the price. please login using the following form', 'mp-sms' ) }</span>
 							</Skeleton>
 						}
 
 						<Divider />
 						{
 							credits.mtn != 0 ?
-							<Skeleton loading={credits.loading} active avatar> <DollarOutlined style={{color: '#00cd1d', fontSize: '18px', marginRight: '8px'}} />
-								<span>{ __( 'The price to send SMS for Hamrah Aval equal is', mp_sms_localize.text_domain ) } { `${credits.mtn}` } { __( 'T', mp_sms_localize.text_domain ) }</span>
+							<Skeleton loading={credits.loading} active avatar> <DollarOutlined style={mp_sms_localize.direction == 'ltr' ? Styles.Credits.Success : Styles.RTLCredits.Success} />
+								<span>{ __( 'The price to send SMS for Hamrah Aval equal is', 'mp-sms' ) } { `${credits.mtn}` } { __( 'T', 'mp-sms' ) }</span>
 							</Skeleton>
 							:
-							<Skeleton loading={credits.loading} active avatar> <CloseSquareOutlined style={{color: '#cd0000', fontSize: '18px', marginRight: '8px'}} />
-								<span>{ __( 'We are sorry, but we can\'t estimate the price. please login using the following form', mp_sms_localize.text_domain ) }</span>
+							<Skeleton loading={credits.loading} active avatar> <CloseSquareOutlined style={mp_sms_localize.direction == 'ltr' ? Styles.Credits.Error : Styles.RTLCredits.Error} />
+								<span>{ __( 'We are sorry, but we can\'t estimate the price. please login using the following form', 'mp-sms' ) }</span>
 							</Skeleton>
 						}
 
